@@ -97,10 +97,20 @@ A célula de força não comercial utilizada possui a configuração dada na Fig
 \label{fig:celula-nao-comercial-desenho}
 \end{figure}
 
-\noindent onde o extensômetro $(+)$ indica uma deformação positiva (alongamento) e o extensômetro $(-)$ indica uma deformação negativa (compressão).
+\noindent onde o extensômetro $(+)$ indica uma deformação positiva (alongamento) e o extensômetro $(-)$ indica uma deformação negativa (compressão). É importante observar que a célula possuía um extensômetro na parte superior (próximo à base de suporte) e outro extensômetro na mesma posição, mas na face inferior da barra. Em termos prático, isto significa que para uma mesma deformação, o variação de resistência elétrica em ambos os extensometros é idêntica em módulo, mas com diferente sinal. Este comportamento é importante pois espera-se que a saída da ponte de Wheatstone fique constante com o aquecimento da barra, fato que não aconteceria caso fosse utilizada a mesma face da ponte para a colagem dos extensômetros.
 
 Ao contrário da célula comercial, esta nao possui a ponte pré-calibrada e, portanto, se fez necessário que a ponte fosse calibrada e ajustada para obter o resultado desejado. De acordo com a especificação dos extensômetros (modelos e fabricantes não estavam explícitos sobre a construção, logo, não foi possível comparar com os valores fornecidos pelo fabricante). Havia, contudo, uma marcação indicando o valor de resistência nominal do extensômetro.
 
+Considerando que a resistência elétrica nominal da célula de carga quando em repouso seja de $350 \Omega$ com incerteza desconhecida, é possível calcular os resistores para os demais braços da ponte de Wheatstone. A Figura \ref{fig:celula-nao-comercial-ponte}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{WheatstoneNaoComercial.pdf}
+\caption{Esquemático elétrico da ponte de Wheatstone para a célula de carga não-comercial. O modelo escolhido foi utilizar uma meia-ponte, com variação positiva e outra negativa.}
+\label{fig:celula-nao-comercial-ponte}
+\end{figure}
+
+\noindent onde os resistores $R_2$ e $R_4$ são resistores cujo valor deve ser o mais próximo possível do valor nominal dos extensômetros da ponte e $R+$ e $R-$ são os extensômetros com variação, respectivamente, positiva e negativa, de resistência elétrica em função da deformação da barra.
 
 \chapter{Conclusões}
 
