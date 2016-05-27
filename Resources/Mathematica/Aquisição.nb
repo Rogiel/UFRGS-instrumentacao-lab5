@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     35127,        926]
-NotebookOptionsPosition[     34355,        897]
-NotebookOutlinePosition[     34715,        913]
-CellTagsIndexPosition[     34672,        910]
+NotebookDataLength[     28406,        764]
+NotebookOptionsPosition[     27987,        745]
+NotebookOutlinePosition[     28348,        761]
+CellTagsIndexPosition[     28305,        758]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -131,12 +131,6 @@ Cell[BoxData[{
       RowBox[{"5", ",", "1.608"}], "}"}]}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{
-   RowBox[{"data", "[", 
-    RowBox[{"[", 
-     RowBox[{"All", ",", " ", "1"}], "]"}], "]"}], "*=", "9.81"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
   RowBox[{"comercialModelFit", "=", 
    RowBox[{"LinearModelFit", "[", 
     RowBox[{"data", ",", " ", 
@@ -144,10 +138,45 @@ Cell[BoxData[{
       RowBox[{"1", ",", " ", "F"}], "}"}], ",", " ", "F"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{
-   RowBox[{"comercialModel", "=", 
-    RowBox[{"InverseFunction", "[", "comercialModelFit", "]"}]}], ";"}], 
+  RowBox[{"comercialModel", "=", 
+   RowBox[{"InverseFunction", "[", "comercialModelFit", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"comercialModelFit", "[", "\"\<RSquared\>\"", "]"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"comercialPlot", "=", 
+   RowBox[{"Show", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"comercialModelFit", "[", "F", "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"F", ",", " ", 
+         RowBox[{"Min", "[", 
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", " ", "1"}], "]"}], "]"}], "]"}], ",", " ", 
+         RowBox[{"Max", "[", 
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", " ", "1"}], "]"}], "]"}], "]"}]}], "}"}]}], 
+      "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ListPlot", "[", 
+      RowBox[{"data", ",", " ", 
+       RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Massa (kg)\>\"", ",", 
+        "\"\<Tens\[ATilde]o el\[EAcute]trica (V)\>\""}], "}"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{"\"\<Images/Comercial-Plot.pdf\>\"", ",", " ", "comercialPlot"}], 
+    "]"}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"data", "=", 
    RowBox[{"{", 
@@ -176,12 +205,6 @@ Cell[BoxData[{
       RowBox[{"0.8", ",", "1.233"}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"1", ",", "1.225"}], "}"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"data", "[", 
-    RowBox[{"[", 
-     RowBox[{"All", ",", " ", "1"}], "]"}], "]"}], "*=", "9.81"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"nonComercialModelFit", "=", 
@@ -217,12 +240,6 @@ Cell[BoxData[{
      RowBox[{"{", 
       RowBox[{"60", ",", 
        RowBox[{"-", "44.7"}]}], "}"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"data", "[", 
-    RowBox[{"[", 
-     RowBox[{"All", ",", " ", "1"}], "]"}], "]"}], "*=", "9.81"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -296,8 +313,7 @@ Cell[BoxData[{
          RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", " ", 
          RowBox[{"AxesLabel", "\[Rule]", 
           RowBox[{"{", 
-           RowBox[{
-           "\"\<Tempo (s)\>\"", ",", " ", "\"\<For\[CCedilla]a (N)\>\""}], 
+           RowBox[{"\"\<Tempo (s)\>\"", ",", " ", "\"\<Massa (kg)\>\""}], 
            "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
       RowBox[{"Export", "[", 
        RowBox[{"export", ",", "plot"}], "]"}], ";", "\[IndentingNewLine]", 
@@ -309,26 +325,26 @@ Cell[BoxData[{
    RowBox[{
    "\"\<Data/Comercial_0-1kg.lvm\>\"", ",", 
     "\"\<Images/Comercial_0-1kg.pdf\>\"", ",", "\"\<Comercial 0-4kg\>\"", ",",
-     "comercialModel", ",", "4.5", ",", "10"}], "]"}], ";"}], "\n", 
+     "comercialModel", ",", "0.45", ",", "10"}], "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"DoProcessing", "[", 
    RowBox[{
    "\"\<Data/Comercial_0-4kg_etapa.lvm\>\"", ",", 
     "\"\<Images/Comercial_0-4kg_etapa.pdf\>\"", ",", 
     "\"\<Comercial 0-4kg (em 2 etapas)\>\"", ",", "comercialModel", ",", 
-    "4.5", ",", "10"}], "]"}], ";"}], "\[IndentingNewLine]", 
+    "0.45", ",", "10"}], "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"DoProcessing", "[", 
    RowBox[{
    "\"\<Data/Comercial_0-4kg.lvm\>\"", ",", 
     "\"\<Images/Comercial_0-4kg.pdf\>\"", ",", "\"\<Comercial 0-4kg\>\"", ",",
-     "comercialModel", ",", "4.5", ",", "10"}], "]"}], ";"}], "\n", 
+     "comercialModel", ",", "0.45", ",", "10"}], "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"DoProcessing", "[", 
    RowBox[{
    "\"\<Data/Comercial_1-0kg.lvm\>\"", ",", 
     "\"\<Images/Comercial_1-0kg.pdf\>\"", ",", "\"\<Comercial 1-4kg\>\"", ",",
-     "comercialModel", ",", "4.5", ",", "10"}], "]"}], 
+     "comercialModel", ",", "0.45", ",", "10"}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -336,7 +352,7 @@ Cell[BoxData[{
     RowBox[{
     "\"\<Data/Comercial_4-0kg.lvm\>\"", ",", 
      "\"\<Images/Comercial_4-0kg.pdf\>\"", ",", "\"\<Comercial 4-0g\>\"", ",",
-      "comercialModel", ",", "4.5", ",", "10"}], "]"}], ";"}], 
+      "comercialModel", ",", "0.45", ",", "10"}], "]"}], ";"}], 
   "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", " ", 
    RowBox[{"N\[ATilde]o", " ", "comercial"}], " ", 
@@ -347,21 +363,21 @@ Cell[BoxData[{
    "\"\<Data/NaoComercial_0-1000g_direto.lvm\>\"", ",", 
     "\"\<Images/NaoComercial_0-1000g.pdf\>\"", ",", 
     "\"\<N\[ATilde]o-Comercial 0-1000g\>\"", ",", "nonComercialModel", ",", 
-    "2", ",", "5"}], "]"}], ";"}], "\n", 
+    "0.2", ",", "5"}], "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"DoProcessing", "[", 
    RowBox[{
    "\"\<Data/NaoComercial_0-400g_direto.lvm\>\"", ",", 
     "\"\<Images/NaoComercial_0-400g.pdf\>\"", ",", 
     "\"\<N\[ATilde]o-Comercial 0-400g\>\"", ",", "nonComercialModel", ",", 
-    "2", ",", "5"}], "]"}], ";"}], "\n", 
+    "0.2", ",", "5"}], "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"DoProcessing", "[", 
    RowBox[{
    "\"\<Data/NaoComercial_0-400g_etapa.lvm\>\"", ",", 
     "\"\<Images/NaoComercial_0-400g_etapa.pdf\>\"", ",", 
     "\"\<N\[ATilde]o-Comercial 0-400g (em 2 etapas)\>\"", ",", 
-    "nonComercialModel", ",", "2", ",", "5"}], "]"}], 
+    "nonComercialModel", ",", "0.2", ",", "5"}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"DoProcessing", "[", 
@@ -369,37 +385,22 @@ Cell[BoxData[{
    "\"\<Data/NaoComercial_1000g-0_direto.lvm\>\"", ",", 
     "\"\<Images/NaoComercial_1000g-0.pdf\>\"", ",", 
     "\"\<N\[ATilde]o-Comercial 1000-0g\>\"", ",", "nonComercialModel", ",", 
-    "2", ",", "5"}], "]"}], ";"}], "\n", 
+    "0.2", ",", "5"}], "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"DoProcessing", "[", 
    RowBox[{
    "\"\<Data/NaoComercial_400g-0_direto.lvm\>\"", ",", 
     "\"\<Images/NaoComercial_400g-0.pdf\>\"", ",", 
     "\"\<N\[ATilde]o-Comercial 400-0g\>\"", ",", "nonComercialModel", ",", 
-    "2", ",", "5"}], "]"}], ";"}], "\[IndentingNewLine]", 
+    "0.2", ",", "5"}], "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{
-   RowBox[{"DoProcessing", "[", 
-    RowBox[{
-    "\"\<Data/NaoComercial_400g-0_etapa.lvm\>\"", ",", 
-     "\"\<Images/NaoComercial_400g-0_etapa.pdf\>\"", ",", 
-     "\"\<N\[ATilde]o-Comercial 400-0g (em 2 etapas)\>\"", ",", 
-     "nonComercialModel", ",", "2", ",", "5"}], "]"}], ";"}], 
-  "\[IndentingNewLine]", "\n", 
-  RowBox[{"(*", 
+  RowBox[{"DoProcessing", "[", 
    RowBox[{
-    RowBox[{"DoProcessing", "[", 
-     RowBox[{
-     "\"\<Data/NaoComercial_batida_1.lvm\>\"", ",", 
-      "\"\<Data/NaoComercial_batida_1.lvm\>\"", ",", 
-      "\"\<N\[ATilde]o-Comercial X-Yg\>\"", ",", "nonComercialModel", ",", 
-      "2", ",", "5"}], "]"}], "\[IndentingNewLine]", 
-    RowBox[{"DoProcessing", "[", 
-     RowBox[{
-     "\"\<Data/NaoComercial_batida_1.lvm\>\"", ",", 
-      "\"\<Data/NaoComercial_batida_1.lvm\>\"", ",", 
-      "\"\<N\[ATilde]o-Comercial X-Yg\>\"", ",", "nonComercialModel", ",", 
-      "2", ",", "5"}], "]"}]}], "*)"}]}], "\[IndentingNewLine]"}], "Input",
+   "\"\<Data/NaoComercial_400g-0_etapa.lvm\>\"", ",", 
+    "\"\<Images/NaoComercial_400g-0_etapa.pdf\>\"", ",", 
+    "\"\<N\[ATilde]o-Comercial 400-0g (em 2 etapas)\>\"", ",", 
+    "nonComercialModel", ",", "0.2", ",", "5"}], "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.6719896498292828`*^9, 3.671989757216251*^9}, {
    3.671989808030993*^9, 3.671989964250761*^9}, {3.671990001236063*^9, 
    3.671990463690115*^9}, {3.671990762163114*^9, 3.671990768154532*^9}, {
@@ -417,177 +418,24 @@ Cell[BoxData[{
    3.673277686353129*^9, 3.6732777540875683`*^9}, {3.6732777919683523`*^9, 
    3.673277838729103*^9}, {3.673277900019907*^9, 3.673278024965307*^9}, {
    3.673280596915124*^9, 3.673280817986865*^9}, {3.6732808867412024`*^9, 
-   3.673281118096799*^9}}],
+   3.673281118096799*^9}, {3.673290126689604*^9, 3.673290140493544*^9}, {
+   3.6732902274634457`*^9, 3.673290235693892*^9}, {3.673290962008999*^9, 
+   3.673290991050767*^9}, {3.67329112259692*^9, 3.673291177809506*^9}, {
+   3.6732912193904963`*^9, 3.6732912195331993`*^9}, {3.673291438507059*^9, 
+   3.6732914435841837`*^9}, {3.67329152186908*^9, 3.6732916115653*^9}, {
+   3.67329164456034*^9, 3.673291664109317*^9}, {3.673291702370233*^9, 
+   3.673291720632635*^9}, {3.6732918106947317`*^9, 3.673291813845298*^9}, {
+   3.673291882581991*^9, 3.673291883435459*^9}, {3.673291954749793*^9, 
+   3.673291954930591*^9}, {3.673291989827661*^9, 3.6732920895171947`*^9}}],
 
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"DoProcessing[\\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_0-1000g_direto.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_0-1000g_direto.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"N\[ATilde]o-Comercial X-Yg\\\", \
-nonComercialModel, 2, 5]\"\>"}],
-  SequenceForm[
-  "DoProcessing[\"", "Data/NaoComercial_0-1000g_direto.lvm", "\", \"", 
-   "Data/NaoComercial_0-1000g_direto.lvm", 
-   "\", \"N\[ATilde]o-Comercial X-Yg\", nonComercialModel, 2, 5]"],
-  Editable->False]], "Print",
+Cell[BoxData["0.9989748278076744`"], "Output",
  CellChangeTimes->{
-  3.6732806959130583`*^9, 3.6732807485924063`*^9, 3.673280824765716*^9, {
-   3.673280880960784*^9, 3.67328089732792*^9}, 3.6732809339606256`*^9, {
-   3.673280985983307*^9, 3.673281008642704*^9}, 3.6732810554716988`*^9, 
-   3.673281090311198*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"DoProcessing[\\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_0-400g_direto.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_0-400g_direto.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"N\[ATilde]o-Comercial X-Yg\\\", \
-nonComercialModel, 2, 5]\"\>"}],
-  SequenceForm[
-  "DoProcessing[\"", "Data/NaoComercial_0-400g_direto.lvm", "\", \"", 
-   "Data/NaoComercial_0-400g_direto.lvm", 
-   "\", \"N\[ATilde]o-Comercial X-Yg\", nonComercialModel, 2, 5]"],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.6732806959130583`*^9, 3.6732807485924063`*^9, 3.673280824765716*^9, {
-   3.673280880960784*^9, 3.67328089732792*^9}, 3.6732809339606256`*^9, {
-   3.673280985983307*^9, 3.673281008642704*^9}, 3.6732810554716988`*^9, 
-   3.673281090318202*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"DoProcessing[\\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_0-400g_etapa.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_0-400g_etapa.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"N\[ATilde]o-Comercial X-Yg\\\", \
-nonComercialModel, 2, 5]\"\>"}],
-  SequenceForm[
-  "DoProcessing[\"", "Data/NaoComercial_0-400g_etapa.lvm", "\", \"", 
-   "Data/NaoComercial_0-400g_etapa.lvm", 
-   "\", \"N\[ATilde]o-Comercial X-Yg\", nonComercialModel, 2, 5]"],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.6732806959130583`*^9, 3.6732807485924063`*^9, 3.673280824765716*^9, {
-   3.673280880960784*^9, 3.67328089732792*^9}, 3.6732809339606256`*^9, {
-   3.673280985983307*^9, 3.673281008642704*^9}, 3.6732810554716988`*^9, 
-   3.673281090344761*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"DoProcessing[\\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_1000g-0_direto.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_1000g-0_direto.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"N\[ATilde]o-Comercial X-Yg\\\", \
-nonComercialModel, 2, 5]\"\>"}],
-  SequenceForm[
-  "DoProcessing[\"", "Data/NaoComercial_1000g-0_direto.lvm", "\", \"", 
-   "Data/NaoComercial_1000g-0_direto.lvm", 
-   "\", \"N\[ATilde]o-Comercial X-Yg\", nonComercialModel, 2, 5]"],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.6732806959130583`*^9, 3.6732807485924063`*^9, 3.673280824765716*^9, {
-   3.673280880960784*^9, 3.67328089732792*^9}, 3.6732809339606256`*^9, {
-   3.673280985983307*^9, 3.673281008642704*^9}, 3.6732810554716988`*^9, 
-   3.673281090350232*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"DoProcessing[\\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_400g-0_direto.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_400g-0_direto.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"N\[ATilde]o-Comercial X-Yg\\\", \
-nonComercialModel, 2, 5]\"\>"}],
-  SequenceForm[
-  "DoProcessing[\"", "Data/NaoComercial_400g-0_direto.lvm", "\", \"", 
-   "Data/NaoComercial_400g-0_direto.lvm", 
-   "\", \"N\[ATilde]o-Comercial X-Yg\", nonComercialModel, 2, 5]"],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.6732806959130583`*^9, 3.6732807485924063`*^9, 3.673280824765716*^9, {
-   3.673280880960784*^9, 3.67328089732792*^9}, 3.6732809339606256`*^9, {
-   3.673280985983307*^9, 3.673281008642704*^9}, 3.6732810554716988`*^9, 
-   3.673281090361372*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"DoProcessing[\\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_400g-0_etapa.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_400g-0_etapa.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"N\[ATilde]o-Comercial X-Yg\\\", \
-nonComercialModel, 2, 5]\"\>"}],
-  SequenceForm[
-  "DoProcessing[\"", "Data/NaoComercial_400g-0_etapa.lvm", "\", \"", 
-   "Data/NaoComercial_400g-0_etapa.lvm", 
-   "\", \"N\[ATilde]o-Comercial X-Yg\", nonComercialModel, 2, 5]"],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.6732806959130583`*^9, 3.6732807485924063`*^9, 3.673280824765716*^9, {
-   3.673280880960784*^9, 3.67328089732792*^9}, 3.6732809339606256`*^9, {
-   3.673280985983307*^9, 3.673281008642704*^9}, 3.6732810554716988`*^9, 
-   3.6732810903655787`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"DoProcessing[\\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_batida_1.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_batida_1.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"N\[ATilde]o-Comercial X-Yg\\\", \
-nonComercialModel, 2, 5]\"\>"}],
-  SequenceForm[
-  "DoProcessing[\"", "Data/NaoComercial_batida_1.lvm", "\", \"", 
-   "Data/NaoComercial_batida_1.lvm", 
-   "\", \"N\[ATilde]o-Comercial X-Yg\", nonComercialModel, 2, 5]"],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.6732806959130583`*^9, 3.6732807485924063`*^9, 3.673280824765716*^9, {
-   3.673280880960784*^9, 3.67328089732792*^9}, 3.6732809339606256`*^9, {
-   3.673280985983307*^9, 3.673281008642704*^9}, 3.6732810554716988`*^9, 
-   3.673281090375813*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"DoProcessing[\\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_batida_1.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"\"\>", 
-   "\[InvisibleSpace]", "\<\"Data/NaoComercial_batida_1.lvm\"\>", 
-   "\[InvisibleSpace]", "\<\"\\\", \\\"N\[ATilde]o-Comercial X-Yg\\\", \
-nonComercialModel, 2, 5]\"\>"}],
-  SequenceForm[
-  "DoProcessing[\"", "Data/NaoComercial_batida_1.lvm", "\", \"", 
-   "Data/NaoComercial_batida_1.lvm", 
-   "\", \"N\[ATilde]o-Comercial X-Yg\", nonComercialModel, 2, 5]"],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.6732806959130583`*^9, 3.6732807485924063`*^9, 3.673280824765716*^9, {
-   3.673280880960784*^9, 3.67328089732792*^9}, 3.6732809339606256`*^9, {
-   3.673280985983307*^9, 3.673281008642704*^9}, 3.6732810554716988`*^9, 
-   3.673281090380649*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "Null", ",", "Null", ",", "Null", ",", "Null", ",", "Null", ",", "Null", 
-   ",", "Null", ",", "Null"}], "}"}]], "Output",
- CellChangeTimes->{
-  3.673276947550868*^9, {3.673277004754293*^9, 3.6732770315449944`*^9}, 
-   3.67327706363066*^9, {3.673277147599897*^9, 3.673277164265902*^9}, 
-   3.673277324698765*^9, {3.673277359537175*^9, 3.673277383151903*^9}, {
-   3.673277815478859*^9, 3.6732778434335938`*^9}, {3.673277905300047*^9, 
-   3.673277933519641*^9}, 3.673277998964961*^9, 3.6732806959576178`*^9, 
-   3.673280748618526*^9, 3.673280824784091*^9, {3.6732808809769373`*^9, 
-   3.673280897346689*^9}, 3.673280933998363*^9, {3.673280986013463*^9, 
-   3.673281008678211*^9}, 3.673281055498201*^9, 3.67328109038479*^9}]
+  3.673290147764166*^9, {3.673290988664651*^9, 3.6732909922084017`*^9}, {
+   3.6732911244647293`*^9, 3.673291146947509*^9}, 3.6732912206775627`*^9, 
+   3.673291443981739*^9, 3.673291528889206*^9, {3.6732915710727386`*^9, 
+   3.673291598896634*^9}, {3.6732916506969833`*^9, 3.673291664995962*^9}, 
+   3.673291721281438*^9, 3.6732918142018023`*^9, 3.673291884104887*^9, 
+   3.673291955689495*^9, {3.6732920503163157`*^9, 3.673292067053858*^9}}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -895,8 +743,8 @@ Cell[BoxData[{
    3.67328418953393*^9, 3.6732842668845377`*^9}, {3.673284312444807*^9, 
    3.673284403079215*^9}}]
 },
-WindowSize->{1285, 690},
-WindowMargins->{{43, Automatic}, {143, Automatic}},
+WindowSize->{1285, 697},
+WindowMargins->{{Automatic, 122}, {Automatic, 106}},
 FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
 2016)",
 StyleDefinitions->"Default.nb"
@@ -913,21 +761,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 14807, 397, 913, "Input"],
-Cell[CellGroupData[{
-Cell[15412, 423, 868, 17, 22, "Print"],
-Cell[16283, 442, 864, 17, 22, "Print"],
-Cell[17150, 461, 860, 17, 22, "Print"],
-Cell[18013, 480, 868, 17, 22, "Print"],
-Cell[18884, 499, 864, 17, 22, "Print"],
-Cell[19751, 518, 862, 17, 22, "Print"],
-Cell[20616, 537, 844, 17, 22, "Print"],
-Cell[21463, 556, 844, 17, 22, "Print"]
+Cell[580, 22, 15625, 406, 947, "Input"],
+Cell[16208, 430, 509, 7, 28, "Output"]
 }, Open  ]],
-Cell[22322, 576, 763, 13, 28, "Output"]
-}, Open  ]],
-Cell[23100, 592, 3213, 89, 216, "Input"],
-Cell[26316, 683, 8035, 212, 471, "Input"]
+Cell[16732, 440, 3213, 89, 216, "Input"],
+Cell[19948, 531, 8035, 212, 471, "Input"]
 }
 ]
 *)

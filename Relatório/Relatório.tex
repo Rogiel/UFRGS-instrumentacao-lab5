@@ -1,9 +1,12 @@
 \documentclass[a4paper]{instrumentacao}
 
 \usepackage{etoolbox}
+\usepackage{float}
 
 \newtoggle{attachments}
 \toggletrue{attachments}
+
+\extrafloats{100}
 
 \graphicspath{
 	{../Resources/Images/}
@@ -167,7 +170,79 @@ O torquímetro já estava construído e possuía 4 fios: 2 de alimentação (ter
 \chapter{Resultados e Discussões}
 
 \section{Célula de carga comercial}
-Para a célula de carga comercial, foram testados valores de 0 a 5kg 
+A Tabela \ref{tab:celula-comercial-resultado-funcao-transferencia} apresenta as medidas experimentais para a célula de carga comercial.
+
+
+\begin{table}[H]
+\centering
+\caption{Tabela com os valores de medidos experimentalmente para ajuste da função de transferência experimental da célula de carga comercial.}
+\begin{tabular}{|l|l|l|}
+
+\hline
+\textbf{Massa (kg)} & \textbf{Medida \#1 (V)} & \textbf{Medida \#2 (V)} \\ \hline
+0.0 & 1.899 & 1.896 \\ \hline
+0.2 & 1.887 & 1.885 \\ \hline
+0.4 & 1.875 & 1.867 \\ \hline
+0.6 & 1.863 & 1.858 \\ \hline
+0.8 & 1.852 & 1.846 \\ \hline
+1.0 & 1.841 & 1.834 \\ \hline
+1.2 & 1.823 & 1.827 \\ \hline
+1.4 & 1.818 & 1.811 \\ \hline
+1.6 & 1.806 & 1.799 \\ \hline
+1.8 & 1.795 & 1.788 \\ \hline
+2.0 & 1.784 & 1.781 \\ \hline
+2.2 & 1.766 & 1.769 \\ \hline
+2.4 & 1.760 & 1.757 \\ \hline
+2.6 & 1.748 & 1.743 \\ \hline
+2.8 & 1.737 & 1.734 \\ \hline
+3.0 & 1.724 & 1.718 \\ \hline
+3.2 & 1.708 & 1.712 \\ \hline
+3.4 & 1.702 & 1.695 \\ \hline
+3.6 & 1.691 & 1.684 \\ \hline
+3.8 & 1.679 & 1.671 \\ \hline
+4.0 & 1.668 & 1.665 \\ \hline
+4.2 & 1.652 & 1.654 \\ \hline
+4.4 & 1.644 & 1.642 \\ \hline
+4.6 & 1.631 & 1.631 \\ \hline
+4.8 & 1.621 & 1.619 \\ \hline
+5.0 & 1.609 & 1.608 \\ \hline
+
+\end{tabular}
+\label{tab:celula-comercial-resultado-funcao-transferencia}
+\end{table}
+
+A função que melhor ajusta os dados da Tabela \ref{tab:celula-comercial-resultado-funcao-transferencia} é dada na Equação \ref{eq:celula-comercial-resultado-funcao-transferencia}
+
+\begin{equation}
+	m(V) = 32.9198 - 17,3681 V
+	\label{eq:celula-comercial-resultado-funcao-transferencia}
+\end{equation}
+
+\noindent onde $m(V)$ é a massa em $kg$ a qual a viga está submetida e $V$ é a tensão elétrica em $V$ medida na saída de ponte de Wheatstone com o sensor.
+
+A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-comercial-resultado-funcao-transferencia-r2}
+
+\begin{equation}
+	R^2 = 0.998975
+	\label{eq:celula-comercial-resultado-funcao-transferencia-r2}
+\end{equation}
+
+\todo{erro de linearidade}
+
+A Figura \ref{fig:celula-comercial-resultado-funcao-transferencia} apresenta um gráfico com a função de transferência da Equação \ref{eq:celula-comercial-resultado-funcao-transferencia} e os dados da Tabela \ref{tab:celula-comercial-resultado-funcao-transferencia}.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{Comercial-Plot.pdf}
+\caption{Função de transferência experimental: função de melhor ajuste e medidas experimentais}
+\label{fig:celula-comercial-resultado-funcao-transferencia}
+\end{figure}
+
+\noindent onde a linha contínua representa a função ajustada e os pontos representam cada medida individual realizada.
+
+Com a função de transferência é possível aplicá-la nos dados adquiridos em laboratórios e obter a resposta da célula para a adição ou remoção de carga.
+
+A Figura \ref{fig:celula-comercial-resultado-0-1kg} apresenta a resposta da célula quando adicionado um peso suspenso  de $1 kg$ na barra. Uma força equivalente de aproximadamente 10N é exercida sobre a barra (assumindo que a aceleração da gravidade local $g$ seja de $10 m/s^2$. A curva foi filtrada por um filtro passa-baixas digital com frequência de corte de 5Hz para reduzir o efeito do ruído gerado pelo circuito de condicionamento.
 
 \begin{figure}[H]
 \center
@@ -176,19 +251,27 @@ Para a célula de carga comercial, foram testados valores de 0 a 5kg
 \label{fig:celula-comercial-resultado-0-1kg}
 \end{figure}
 
+Na Figura \ref{fig:celula-comercial-resultado-0-1kg} é possível observar que o tempo de resposta é baixo, de fato, nem é perceptível o tempo que ele leva para responder, uma vez que o fator mais notável no formato da curva não é a resposta do sensor nem da viga, mas a forma de como a carga era solta na viga. Era necessário segurar o peso para que a vibração do peso tivesse menor impacto na medida e este processo demorava aproximadamente 1 segundo como pode ser visto na curva.
+
+A Figura \ref{fig:celula-comercial-resultado-0-4kg} apresenta a resposta da célula quando adicionado um peso suspenso de $4 kg$ na barra. A curva foi filtrada por um filtro passa-baixas digital com frequência de corte de 5Hz para reduzir o efeito do ruído gerado pelo circuito de condicionamento.
+
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{Comercial_0-4kg.pdf}
-\caption{}
 \caption{Curva temporal da resposta da célula de carga comercial quando adicionada uma carga de 4kg na célula em repouso.}
+\label{fig:celula-comercial-resultado-0-4kg}
 \end{figure}
+
+A Figura \ref{fig:celula-comercial-resultado-0-4kg} é possível observar que a célula continua linear no intervalo de 4 kg e o valor de estabilidade da célula está muito próximo da 4kg ao final do tempo de 5 segundos. Entretanto, há um pequeno \textit{offset} no ponto de 0 kg que acredita-se ser devido à problemas no circuito de condicionamento. Esta hipótese não foi testada. A Figura \ref{fig:celula-comercial-resultado-0-4kg-etapa} apresenta um sistema equivalente ao da Figura \ref{fig:celula-comercial-resultado-0-4kg} contudo desta vez a massa foi adicionada em duas etapas, primeiramente somente 2kg foram suspensos e logo após mais uma segunda massa de 2kg foi suspensa, totalizando 4kg suspenso na viga. É possível ver claramente o tempo em que cada massa foi adicionada ao sistema.
 
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{Comercial_0-4kg_etapa.pdf}
 \caption{Curva temporal da resposta da célula de carga comercial quando adicionada uma carga de 4kg na célula em repouso em duas etapas (2kg + 2kg).}
 \label{fig:celula-comercial-resultado-0-4kg-etapa}
-\end{figure}
+\end{figure} 
+
+A fim de validar a reprodutibilidade da célula, é necessário que a célula retorne ao ponto ponto de partida (0kg) quando as massas são removidas dos sistemas das Figuras \ref{fig:celula-comercial-resultado-0-4kg} e \ref{fig:celula-comercial-resultado-0-1kg}. A Figura \ref{fig:celula-comercial-resultado-1-0kg} apresenta a curva de resposta da célula quando uma carga de 1kg é removida.
 
 \begin{figure}[H]
 \center
@@ -197,6 +280,14 @@ Para a célula de carga comercial, foram testados valores de 0 a 5kg
 \label{fig:celula-comercial-resultado-1-0kg}
 \end{figure}
 
+Na Figura \ref{fig:celula-comercial-resultado-1-0kg} é possível observar que a resposta de remoção de carga é muito mais rápida do que a resposta de adição de carga, isto se dá ao fato de ser muito mais fácil (para o operador) remover a carga, pois basta que ele a eleve alguns centímetros ao invés de suspender onde ele deve ter cuidado para que não haja vibração que pode interferir com os resultados obtidos. Embora este efeito seja menos significante neste caso, ele ainda está presente em menor significância.
+
+Outro fato interessante que é possível observar na Figura \ref{fig:celula-comercial-resultado-1-0kg} é o \textit{overshoot} presente ao redor da marca de 1 segundo. Acredita-se que este efeito é devido ao efeito elástico da viga, que ao ter a carga removida, se comporta como uma mola muito rígida e tem uma vibração muito rápida que logo se extingue devido à rigidez do material da célula de carga.
+
+É possível dizer que a viga retornou ao valor inicial com a remoção da carga. É possível afirmar isto, pois a resolução de função de transferência medida foi de 0,2 kg e é possível observar que o valor final está ao redor do zero (isto é, está muito mais próximo do zero do que do 0,2kg).
+
+A Figura \ref{fig:celula-comercial-resultado-4-0kg} apresenta a curva temporal de remoção de carga quando a viga está submetida à uma massa suspensa de 4kg e toda carga é removida de uma vez só.
+
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{Comercial_4-0kg.pdf}
@@ -204,9 +295,60 @@ Para a célula de carga comercial, foram testados valores de 0 a 5kg
 \label{fig:celula-comercial-resultado-4-0kg}
 \end{figure}
 
-
+Na Figura \ref{fig:celula-comercial-resultado-4-0kg} é menos visível o efeito elástico, embora este ainda esteja presente. Como na Figura \ref{fig:celula-comercial-resultado-1-0kg}, é possível afirmar que a célula retornou ao seu valor inicial e portanto o experimento teve sua reprodutibilidade confirmada.
 
 \section{Célula de carga não-comercial}
+A Tabela \ref{tab:celula-nao-comercial-resultado-funcao-transferencia} apresenta as medidas experimentais para a célula de carga não-comercial.
+
+
+\begin{table}[H]
+\centering
+\caption{Tabela com os valores de medidos experimentalmente para ajuste da função de transferência experimental da célula de carga não-comercial.}
+\begin{tabular}{|l|l|l|}
+
+\hline
+\textbf{Massa (kg)} & \textbf{Tensão Elétrica (V)} & \textbf{Tensão Elétrica (V)} \\ \hline
+ 0.0 & 1.273 & 1.272 \\ \hline
+ 0.2 & 1.262 & 1.261 \\ \hline
+ 0.4 & 1.249 & 1.253 \\ \hline
+ 0.6 & 1.242 & 1.244 \\ \hline
+ 0.8 & 1.233 & 1.233 \\ \hline
+ 1.0 & 1.226 & 1.225 \\ \hline
+\end{tabular}
+\label{tab:celula-nao-comercial-resultado-funcao-transferencia}
+\end{table}
+
+A função que melhor ajusta os dados da Tabela \ref{tab:celula-nao-comercial-resultado-funcao-transferencia} é dada na Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia}
+
+\begin{equation}
+	m(V) = 27,0883 - 21,309 V
+	\label{eq:celula-nao-comercial-resultado-funcao-transferencia}
+\end{equation}
+
+\noindent onde $m(V)$ é a massa em $kg$ a qual a célula de carga está submetida e $V$ é a tensão elétrica em $V$ medida na saída de ponte de Wheatstone com o sensor. A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia-r2}
+
+\begin{equation}
+	R^2 = 0.992582
+	\label{eq:celula-nao-comercial-resultado-funcao-transferencia-r2}
+\end{equation}
+
+\todo{erro de linearidade}
+
+A Figura \ref{fig:celula-nao-comercial-resultado-funcao-transferencia} apresenta um gráfico com a função de transferência da Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia} e os dados da Tabela \ref{tab:celula-nao-comercial-resultado-funcao-transferencia}.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{NaoComercial-Plot.pdf}
+\caption{Função de transferência experimental: função de melhor ajuste e medidas experimentais}
+\label{fig:celula-nao-comercial-resultado-funcao-transferencia}
+\end{figure}
+
+\noindent onde a linha contínua representa a função ajustada e os pontos representam cada medida individual realizada.
+
+\subsection{Modelo computacional}
+
+
+\subsection{Resposta temporal}
 
 \begin{figure}[H]
 \center
@@ -252,12 +394,16 @@ Para a célula de carga comercial, foram testados valores de 0 a 5kg
 
 %%%%%%%%
 
+\subsection{Efeito do aquecimento da viga}
+
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{NaoComercial-Aquecimento.pdf}
 \caption{Resposta temporal da célula de carga não-comercial para aquecimento de 4 minutos.}
 \label{fig:celula-nao-comercial-resultado-aquecimento}
 \end{figure}
+
+\subsection{Análise de frequência fundamental}
 
 \begin{figure}[H]
 \center
