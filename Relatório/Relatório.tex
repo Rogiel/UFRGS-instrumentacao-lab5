@@ -14,10 +14,10 @@
 	{../Resources/MATLAB/images/}
 }
 
-\title{???}
+\title{Simulação e Experimentos com Células de Cargas}
 \author{Rogiel Sulzbach \and Rodrigo de Castro Silveira}
-\startdate{???}
-\finishdate{???}
+\startdate{02/05/2016}
+\finishdate{30/05/2016}
 \emails{
 	\emailaddress{R.J.S.}{rogiel@rogiel.com},
 	\emailaddress{R.C.S.}{csilveira.rodrigo@gmail.com}
@@ -59,9 +59,9 @@ O extensômetro pode ser modelado matematicamente de forma simplificada pela Equ
 
 \noindent onde $\Delta R/R_0$ é a variação relativa de resistência elétrica do sensor referente ao seu valor inicial de repouso (ou nominal) $R_0$, $\Delta l/l_0$ é a deformação mecânica relativa do sensor referente ao seu valor inicial de repouso (ou nominal) $l_0$ também definida como $\epsilon$ e $k$ é uma constante que define a relação entre variação de resistência elétrica e deformação do sensor, conhecido como fator \textit{gage}.
 
-Dessa forma, é possível relacionar a deformação mecânica da grade do sensor com a variação de resistência elétrica do sensor. Como a variação de resistência elétrica é muito baixa (ordem de $10^{-6}$) para que seja possível medir esta variação é necessário que se utilize um circuito de condicionamento de qualidade. Uma topologia muito comum é a utilização da ponte de Wheatstone, que dá origem à 3 montagens comuns com extensômetros: 1/4 de ponte, meia ponte e a ponte completa.
+Dessa forma, é possível relacionar a deformação mecânica da grade do sensor com a variação de resistência elétrica do sensor. Como a variação de resistência elétrica é muito baixa (ordem de $10^{-6}$) para que seja possível medir esta variação é necessário que se utilize um circuito de condicionamento de qualidade. Uma topologia muito comum é a utilização da ponte de Wheatstone, que dá origem a 3 montagens comuns com extensômetros: 1/4 de ponte, meia ponte e a ponte completa.
 
-Este relatório versará sobre experimentos utilizando células de carga, onde será levantada a função de transferência para uma célula de carga comercial da HBM e outra célula de carga não-comercial feita com uma simples barra de alumínio e extensômetros cimentados sobre a barra que será validado utilizando um modelo computacional simulado. Adicionalmente foi levantada a função de transferência de um torquímetro disponível no laboratório.
+Este relatório versará sobre experimentos utilizando células de carga, onde será levantada a função de transferência experimental para uma célula de carga comercial da HBM e outra célula de carga não-comercial feita com uma simples barra de alumínio e extensômetros cimentados sobre a barra que será validado utilizando um modelo computacional simulado. Adicionalmente foi levantada a função de transferência experimental de um torquímetro disponível no laboratório.
 
 Como a variação de resistência elétrica em extensômetros é observada em um valor tão baixo (ordem de $\mu\Omega$), o circuito de condicionamento é fundamental e portanto uma breve análise em circuitos de condicionamento será feita.
 
@@ -92,14 +92,14 @@ A função de transferência da ponte de Wheatstone proposta é dada conforme Eq
 	\label{eq:wheatstone-tf}
 \end{equation}
 
-Considerando que as condições das Equações \ref{eq:celula-comercial-cond1} e \ref{eq:celula-comercial-cond2} são válidas, então a ponte é dita estar "em equilíbrio", isto é, a saída de tensão elétrica entre $V_-$ e $V_+$ é de $OV$.
+Considerando que as condições das Equações \ref{eq:celula-comercial-cond1} e \ref{eq:celula-comercial-cond2} são válidas, então a ponte é dita estar "em equilíbrio", isto é, a saída de tensão elétrica entre $V_-$ e $V_+$ é de $0V$.
 
 \begin{eqnarray}
-	R_1 = R_4 \label{eq:celula-comercial-cond1} \\
-	R_2 = R_3 \label{eq:celula-comercial-cond2}
+	R_1 = R_3 \label{eq:celula-comercial-cond1} \\
+	R_2 = R_4 \label{eq:celula-comercial-cond2}
 \end{eqnarray} 
 
-Qualquer pequena variação de resistência elétrica em qualquer um dos resistores da Figura \ref{fig:celula-comercial-circuito} que violem as condições da Equação \ref{eq:celula-comercial-cond1} e \ref{eq:celula-comercial-cond2} incorre no desequilíbrio da ponte que pode ser medido utilizando a saída em tensão elétrica.
+Qualquer pequena variação de resistência elétrica em qualquer um dos resistores da Figura \ref{fig:celula-comercial-circuito} que violem as condições da Equação \ref{eq:celula-comercial-cond1} e \ref{eq:celula-comercial-cond2} incorre no desequilíbrio da ponte, que pode ser medido utilizando a saída em tensão elétrica.
 
 Com isto, a ponte pode ser utilizada como circuito de condicionamento para um sistema de medição de deformação mecânica de um corpo. Na Figura \ref{fig:celula-comercial-esquema-fisico} está apresentado um esquemático físico da célula de carga comercial utilizada:
 
