@@ -68,7 +68,7 @@ Como a variação de resistência elétrica em extensômetros é observada em um
 \chapter{Metodologia Experimental}
 Nestes experimentos de laboratório foi utilizado o software Wolfram Mathematica 10.4.0 da Wolfram Research, Inc. para realizar todos os cálculos no computador utilizando precisão do tipo MachinePrecision\cite{mathematica-numerial-precision} onde a precisão dos números de ponto flutuante respeitam os critérios impostos pelo processador (64 bits, precisão dupla) que implementam o padrão IEEE de ponto flutuante, possuem um "Épsilon de Máquina", o menor valor que somado a 1 retorna um valor diferente de 1, isto é, não causa arredondamento \cite{wikipedia-epsilon}, de $2^{-52}$, ou seja, na ordem de $10^{-16}$ e podem, portanto, serem desprezados perante a resolução de todos os outros instrumentos utilizados no experimento. Adicionalmente, quando possível, os cálculos foram realizados de forma simbólica com substituição numérica no final. Os scripts utilizados para cálculo estão anexados ao fim do documento, na Página \pageref{ch:attachments}.
 
-Para a realização das simulações mecânicas, o SOLIDWORKS 2016 SP2 desenvolvido pela Dassault Systèmes SolidWorks Corp.
+Para a realização de simulações mecânicas do modelo computacional 3D foi utilizado o software SOLIDWORKS 2016 SP2 desenvolvido pela Dassault Systèmes SolidWorks Corp.
 
 \section{Célula de carga comercial}
 
@@ -116,9 +116,39 @@ Portanto, é possível utilizar esta construção como forma de medir deformaç�
 
 \todo{continuar}
 
+De acordo com o fabricante a sensibilidade da célula é de $2 mV/V$ e possui $350 \Omega$ de resistência elétrica nominal e com carga máxima de $5 kg$.  O fabricante da célula é "FLEXAR Celdas de Carga", um fabricante argentino de células de carga, modelo "REACCION BCD-5". O site do fabricante não possuía listagem com especificações técnicas deste modelo e portanto não há informações mais detalhadas sobre esta célula, como incertezas da resistência nominal, incerteza da sensibilidade e outros detalhes.
+
+Todas medidas de tensão elétrica da célula foram feitas utilizando o LabVIEW versão 7.1 disponibilizada pelo laboratório com auxílio dos dispositivos de DAQ da National Instruments modelo USB-6009. Conforme o fabricante \cite{daq-specifications} a entrada analógica deste dispositivo possui 14 bits, taxa de amostragem de 48 kS/s e resolução de tensão elétrica de 1.53mV. O sinal de saída foi amostrado à uma taxa de 1000 Hz com 500 amostras e a média destes valores era tomado como uma única medida experimental. Este processo visa minimizar o impacto do ruído aditivo gaussiano branco (AWGN) gerado pelo circuito de condicionamento na medida realizada.
+
+O circuito de condicionamento consistia em um amplificador de instrumentação (AI) INA126AP fabricado pela Texas Instruments com \textit{bias} de corrente de entrada máxima de 25 nA \cite{datasheet-ina126} configurado com ganho de \todo{quanto?}. O circuito de condicionamento foi alimentado utilizando um regulador de tensão elétrica positivo LM7805 de $5V \pm 0,2V$ \cite{datasheet-lm7805} fabricado pela Fairchild Semiconductors e com um regulador de tensão elétrica negativo LM7905 de $-5V \pm 0,2V$ \cite{datasheet-lm7905} fabricado pela Texas Instruments. A célula de carga foi alimentada utilizando a referência de tensão elétrica REF02 de $5V \pm 0,01V$ \cite{datasheet-ref02} fabricado pela Texas Instruments.
+
+A Figura \ref{fig:celula-comercial-metodologia-condicionamento} apresenta o esquemático elétrico do circuito de condicionamento da célula de carga.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{Comercial-Circuito.pdf}
+\caption{Esquemático elétrico do circuito de condicionamento da célula de carga comercial}
+\label{fig:celula-comercial-metodologia-condicionamento}
+\end{figure}
+
+\noindent onde a alimentação de $+5V$ representa a referência de tensão elétrica REF02, os resistores representam de forma simbólica a ponte de Wheatstone interna da célula de carga (o fabricante não informa de forma exata a topologia de construção da ponte nem valores de resistores que colaboram no balanço da ponte), o amplificador AI é um amplificador de instrumentação com ganho de \todo{quanto?} e $V_{out}$ é a tensão elétrica de saída da ponte, filtrado, amostrado pelo DAQ e medido no LabVIEW.
+
+O circuito de amostragem consistia em um filtro passa-baixas de Butterworth de ordem 4 com frequência de corte de 100Hz utilizando a topologia de filtros analógicos ativos de Sallen-Key. Como amplificador operacional para a implementação do filtro, utilizou-se o amplificador operacional encapsulado TL084 da Texas Instruments com distorção harmônica total típica de $0,003\%$ \cite{datasheet-tl084}.
+
+A Figura \ref{fig:celula-comercial-cadeia-transducao} apresenta a cadeia de transdução completa utilizada no experimento.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{Comercial-Cadeia-Transducao.pdf}
+\caption{Cadeia de transdução completa do experimento com a célula de carga comercial}
+\label{fig:celula-comercial-cadeia-transducao}
+\end{figure}
+
+\todo{cadeia de medida}
+
 \section{Célula de carga não-comercial}
 
-A célula de carga não comercial utilizada possui a configuração dada na Figura \ref{fig:celula-nao-comercial-desenho}:
+A célula de carga não comercial utilizada possuía a configuração dada na Figura \ref{fig:celula-nao-comercial-desenho}:
 
 \begin{figure}[H]
 \center
@@ -448,8 +478,14 @@ instrumentação (01 célula de carga não comercial do tipo viga engastada e 01
 \bibitem{wikipedia-epsilon} \url{https://en.wikipedia.org/wiki/Machine_epsilon}, acessado em 26 de abril de 2016
 \bibitem{livro-texto}  Balbinot, Alexandre; Brusamarello, Valner J., Instrumentação e Fundamentos de Medida - Vol.1 - 2ª Ed. Rio de Janeiro: LTC, 2014.
 \bibitem{daq-specifications} NI USB-6009 -- DEVICE SPECIFICATIONS, \url{http://www.ni.com/pdf/manuals/375296a.pdf}, acessado em 3 de maio de 2016
+
 \bibitem{daq-user-guide} NI USB-6009 -- USER GUIDE, \url{http://www.ni.com/pdf/manuals/371303n.pdf}, acessado em 3 de maio de 2016
-\bibitem{datasheet-lm7805} Datasheet oferecido pelo fabricante do regulador de tensão LM7805CV, disponível em \url{http://www.datasheetlib.com/datasheet/221840/l7805cv_stmicroelectronics.html}.
+\bibitem{datasheet-lm7805} Datasheet oferecido pelo fabricante do regulador de tensão elétrica LM7805CV, disponível em \url{http://www.datasheetlib.com/datasheet/221840/l7805cv_stmicroelectronics.html}.
+\bibitem{datasheet-lm7905} Datasheet oferecido pelo fabricante do regulador de tensão elétrica LM7905, disponível em \url{http://www.ti.com/lit/ds/symlink/lm7905.pdf}.
+\bibitem{datasheet-ref02} Datasheet oferecido pelo fabricante da referência de tensão elétrica REF02, disponível em \url{http://www.ti.com/lit/ds/sbvs003b/sbvs003b.pdf}.
+
+\bibitem{datasheet-tl084} Datasheet oferecido pelo fabricante do amplificador operacional TL084, disponível em \url{http://www.ti.com.cn/cn/lit/ds/symlink/tl084.pdf}.
+
 \bibitem{datasheet-ina126} Datasheet oferecido pelo fabricante amplificador de instrumentação INA126, disponível em \url{http://www.ti.com/lit/ds/symlink/ina126.pdf}.
 
 \end{thebibliography}
