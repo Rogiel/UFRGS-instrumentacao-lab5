@@ -70,9 +70,7 @@ Nestes experimentos de laboratório foi utilizado o software Wolfram Mathematica
 
 Para a realização de simulações mecânicas do modelo computacional 3D foi utilizado o software SOLIDWORKS 2016 SP2 desenvolvido pela Dassault Systèmes SolidWorks Corp.
 
-\section{Célula de carga comercial}
-
-Neste experimento foi levantada a função de transferência experimental para uma viga engastada utilizando uma célula de carga comercial \todo{marca e outros detalhes da célula}.
+\section{Ponte de Wheatstone}
 
 Na Figura \ref{fig:celula-comercial-circuito} está apresentado o esquemático elétrico de uma ponte de Wheatstone:
 
@@ -92,16 +90,62 @@ A função de transferência da ponte de Wheatstone proposta é dada conforme Eq
 	\label{eq:wheatstone-tf}
 \end{equation}
 
-Considerando que as condições das Equações \ref{eq:celula-comercial-cond1} e \ref{eq:celula-comercial-cond2} são válidas, então a ponte é dita estar "em equilíbrio", isto é, a saída de tensão elétrica entre $V_-$ e $V_+$ é de $0V$.
+Considerando que as condições da Equação \ref{eq:celula-comercial-cond1} ou \ref{eq:celula-comercial-cond2} são válidas, então a ponte é dita estar "em equilíbrio", isto é, a saída de tensão elétrica entre $V_-$ e $V_+$ é de $0V$.
 
 \begin{eqnarray}
-	R_1 = R_3 \label{eq:celula-comercial-cond1} \\
-	R_2 = R_4 \label{eq:celula-comercial-cond2}
+	R_1 R_4 = R_2 R_3 \label{eq:celula-comercial-cond1} \\
+	R_1/R_3 = R_2/R_4 \label{eq:celula-comercial-cond2}
 \end{eqnarray} 
 
-Qualquer pequena variação de resistência elétrica em qualquer um dos resistores da Figura \ref{fig:celula-comercial-circuito} que violem as condições da Equação \ref{eq:celula-comercial-cond1} e \ref{eq:celula-comercial-cond2} incorre no desequilíbrio da ponte, que pode ser medido utilizando a saída em tensão elétrica.
+Qualquer pequena variação de resistência elétrica em qualquer um dos resistores da Figura \ref{fig:celula-comercial-circuito} que violem as condições da Equação \ref{eq:celula-comercial-cond1} ou \ref{eq:celula-comercial-cond2} incorre no desequilíbrio da ponte, que pode ser medido utilizando a saída em tensão elétrica.
 
-Com isto, a ponte pode ser utilizada como circuito de condicionamento para um sistema de medição de deformação mecânica de um corpo. Na Figura \ref{fig:celula-comercial-esquema-fisico} está apresentado um esquemático físico da célula de carga comercial utilizada:
+Com isto, a ponte pode ser utilizada como circuito de condicionamento para um sistema de medição de deformação mecânica de um corpo. Como já verificado, um extensômetro ou \textit{strain gage} (SG) é um resistor com um valor fixo ($R_0$) mais um valor variável ($\Delta R$) devido à deformação percebida.
+
+
+É comum utilizar 3 formas distintas de medição utilizando extesômetros e a ponte de Wheatstone, que são vistas a seguir.
+
+\subsection{1/4 Ponte}
+
+Nesta configuração, a mais simples delas, é utilizado apenas um strain gage (SG) ativo. Os outros quatro são apenas resistores.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{1-4 ponte.jpg}
+\caption{Modelo de fixação de SG para configuração de 1/4 Ponte. (a) vista lateral e (b) vista superior}
+\label{fig:1-4 ponte}
+\end{figure}
+
+
+\subsection{1/2 Ponte}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{1-2 ponte_1.jpg}
+\caption{Modelo de fixação de SG para configuração de 1/2 Ponte sem compensação de temperatura. (a) vista lateral e (b) vista superior}
+\label{fig:1-2 ponte_sem temp}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{1-2 ponte_2.jpg}
+\caption{Modelo de fixação de SG para configuração de 1/2 Ponte com compensação de temperatura. (a) vista lateral e (b) vista superior}
+\label{fig:1-2 ponte_com temp}
+\end{figure}
+
+\subsection{Ponte Completla}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{ponte completa.jpg}
+\caption{Modelo de fixação de SG para configuração de Ponte Completa. (a) vista lateral e (b) vista superior}
+\label{fig:1-2 ponte_com temp}
+\end{figure}
+
+\section{Célula de carga comercial}
+
+Neste experimento foi levantada a função de transferência experimental para uma viga engastada utilizando uma célula de carga comercial \todo{marca e outros detalhes da célula}.
+
+Na Figura \ref{fig:celula-comercial-esquema-fisico} está apresentado um esquemático físico da célula de carga comercial utilizada:
 
 \begin{figure}[H]
 \center
@@ -112,9 +156,7 @@ Com isto, a ponte pode ser utilizada como circuito de condicionamento para um si
 
 \noindent onde o extensômetro $(+)$ indica uma deformação positiva (alongamento) e o extensômetro $(-)$ indica uma deformação negativa (compressão).
 
-Portanto, é possível utilizar esta construção como forma de medir deformações que a viga proposta esteja submetida. É comum utilizar 3 formas distintas de medição utilizando extesômetros e a ponte de Wheatstone.
-
-\todo{continuar}
+Portanto, é possível utilizar esta construção como forma de medir deformações que a viga proposta esteja submetida.
 
 De acordo com o fabricante a sensibilidade da célula é de $2 mV/V$ e possui $350 \Omega$ de resistência elétrica nominal e com carga máxima de $5 kg$.  O fabricante da célula é "FLEXAR Celdas de Carga", um fabricante argentino de células de carga, modelo "REACCION BCD-5". O site do fabricante não possuía listagem com especificações técnicas deste modelo e portanto não há informações mais detalhadas sobre esta célula, como incertezas da resistência nominal, incerteza da sensibilidade e outros detalhes.
 
