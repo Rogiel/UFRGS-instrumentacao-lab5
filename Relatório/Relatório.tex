@@ -35,7 +35,7 @@
 
 \chapter{Introdução}
 
-Nesta atividade de relatório foram feitas várias atividades de laboratório utilizando sensores do tipo extesômetro. Um extensômetro é um sensor resistivo cuja resistência elétrica varia com a deformação mecânica do sensor. A Figura \ref{fig:intro-extensometro} apresenta um extensômetro do tipo grade:
+Nesta atividade de laboratório foram feitas várias atividades de laboratório utilizando sensores do tipo extesômetro. Um extensômetro é um sensor resistivo cuja resistência elétrica varia com a deformação mecânica do sensor. A Figura \ref{fig:intro-extensometro} apresenta um extensômetro do tipo grade:
 
 \begin{figure}[H]
 \center
@@ -99,47 +99,104 @@ Considerando que as condições da Equação \ref{eq:celula-comercial-cond1} ou 
 
 Qualquer pequena variação de resistência elétrica em qualquer um dos resistores da Figura \ref{fig:celula-comercial-circuito} que violem as condições da Equação \ref{eq:celula-comercial-cond1} ou \ref{eq:celula-comercial-cond2} incorre no desequilíbrio da ponte, que pode ser medido utilizando a saída em tensão elétrica.
 
-Com isto, a ponte pode ser utilizada como circuito de condicionamento para um sistema de medição de deformação mecânica de um corpo. Como já verificado, um extensômetro ou \textit{strain gage} (SG) é um resistor com um valor fixo ($R_0$) mais um valor variável ($\Delta R$) devido à deformação percebida.
+Com isto, a ponte pode ser utilizada como circuito de condicionamento para um sistema de medição de deformação mecânica de um corpo. Como já verificado, um extensômetro ou \textit{strain gage} (SG) é um resistor com um valor fixo ($R_0$) mais um valor variável ($\Delta R$) devido à deformação percebida. Utilizando $R_1=R_2=R_3=R_4$, e ainda com $r=R_2/R_1$, a variação de tensão na saída da ponte fica:
 
+\begin{equation}
+	\Delta E=\frac{V r}{(r+1)^2}\left [ \frac{\Delta R_1}{R_1}-\frac{\Delta R_2}{R_2}-\frac{\Delta R_3}{R_3}+\frac{\Delta R_4}{R_4} \right ]
+	\label{eq:wheatstone-deltaE}
+\end{equation}
 
-É comum utilizar 3 formas distintas de medição utilizando extesômetros e a ponte de Wheatstone, que são vistas a seguir.
+É comum utilizar 3 formas distintas de medição utilizando extesômetros e a ponte de Wheatstone, que são vistas a seguir, usando como exemplo uma viga engastada.
 
 \subsection{1/4 Ponte}
 
-Nesta configuração, a mais simples delas, é utilizado apenas um strain gage (SG) ativo. Os outros quatro são apenas resistores.
+Nesta configuração, a mais simples delas, é utilizado apenas um strain gage (SG) ativo, conforme a Figura \ref{fig:1-4 ponte}. Os outros três são apenas resistores.
 
 \begin{figure}[H]
 \center
-\includegraphics[width=\textwidth]{1-4 ponte.jpg}
+\includegraphics[width=0.7\textwidth]{1-4 ponte.jpg}
 \caption{Modelo de fixação de SG para configuração de 1/4 Ponte. (a) vista lateral e (b) vista superior}
 \label{fig:1-4 ponte}
 \end{figure}
 
+\noindent onde $R1$ representa a posição do SG e $F$ representa o ponto e sentido de aplicação da força.
+
+Utilizando a Equação \ref{eq:wheatstone-deltaE}, com $\Delta R_{2,3,4}=0$ e $r=R_2/R_1=1$, tem-se:
+
+\begin{equation}
+	\Delta E=\frac{V r}{(r+1)^2}\left [ \frac{\Delta R_1}{R_1} \right ]=\frac{\Delta R}{4R}.V
+	\label{eq:wheatstone-deltaE-1_4ponte}
+\end{equation}
 
 \subsection{1/2 Ponte}
 
+Para a configuração de 1/2 Ponte são utilizados 2 SGs ativos, conforme verifica-se nas Figuras \ref{fig:1-2 ponte_sem temp} e \ref{fig:1-2 ponte_com temp}. A primeira delas, por apresentar os 2 SGs no mesmo lado da viga, isto é, sofrendo o mesmo tipo de deformação (alongamento), não permite a compensação dos efeitos de temperatura. Já o segundo exemplo consegue fazer a compesação, com os 2 SGs na mesma posição, mas em lados opostos da viga, pois um SG é alongando e outro comprimindo.
+
 \begin{figure}[H]
 \center
-\includegraphics[width=\textwidth]{1-2 ponte_1.jpg}
+\includegraphics[width=0.7\textwidth]{1-2 ponte_1.jpg}
 \caption{Modelo de fixação de SG para configuração de 1/2 Ponte sem compensação de temperatura. (a) vista lateral e (b) vista superior}
 \label{fig:1-2 ponte_sem temp}
 \end{figure}
 
 \begin{figure}[H]
 \center
-\includegraphics[width=\textwidth]{1-2 ponte_2.jpg}
+\includegraphics[width=0.7\textwidth]{1-2 ponte_2.jpg}
 \caption{Modelo de fixação de SG para configuração de 1/2 Ponte com compensação de temperatura. (a) vista lateral e (b) vista superior}
 \label{fig:1-2 ponte_com temp}
 \end{figure}
 
+\noindent onde $R_1$, $R_2$ e $R_4$ representam as posições dos SGs e $F$ representa o ponto e sentido de aplicação da força.
+
+Analisando-se a aplicação da Equação \ref{eq:wheatstone-deltaE} para as duas situações apresentadas, tem-se
+
+\begin{equation}
+	\Delta E=\frac{V r}{(r+1)^2}\left [ \frac{\Delta R_1}{R_1}+\frac{\Delta R_4}{R_4} \right ]=\frac{\Delta R}{2R}.V
+	\label{eq:wheatstone-deltaE-1_2ponte_sem_comp}
+\end{equation}
+
+\begin{equation}
+	\Delta E=\frac{V r}{(r+1)^2}\left [ \frac{\Delta R_1}{R_1}-\frac{\Delta R_2}{R_2} \right ]=\frac{\Delta R}{2R}.V
+	\label{eq:wheatstone-deltaE-1_2ponte_com_comp}
+\end{equation}
+
+Aparentemente, as duas equações resultam em um mesmo resultado, já que a deformação de $R_2$ é negativa, a menos que se perceba que:
+
+\begin{equation}
+	\frac{\Delta R_i}{R_i}=\frac{\Delta R_{\varepsilon_i}}{R_i}+\frac{\Delta R_{T_i}}{R_i}
+	\label{eq:compensacao-temp}
+\end{equation}
+
+\noindent isto é, a variação do SG refere-se uma parte à deformação mecânica percebida ($\Delta R_{\varepsilon_i}$) e outra parte à variação de temperatura ($\Delta R_{T_i}$).
+
+Assim, na configuração com compensação de temperatura, a variação de temperatura percebida por um dos SGs é anulada pela variação percebida pelo outro SG.
+
 \subsection{Ponte Completla}
+
+Esta configuração é a mais completa utilizando-se ponte de Wheatstone e SGs. A Figura \ref{fig:ponte-completa} exemplifica a posição dos SGs para a aplicação em uma viga engastada.
 
 \begin{figure}[H]
 \center
-\includegraphics[width=\textwidth]{ponte completa.jpg}
+\includegraphics[width=0.7\textwidth]{ponte completa.jpg}
 \caption{Modelo de fixação de SG para configuração de Ponte Completa. (a) vista lateral e (b) vista superior}
-\label{fig:1-2 ponte_com temp}
+\label{fig:ponte-completa}
 \end{figure}
+
+\noindent onde $R_1$, $R_2$, $R_3$ e $R_4$ representam as posições dos SGs e $F$ representa o ponto e sentido de aplicação da força.
+
+Nesta situação, onde $R_1$ e $R_4$ são fixados na parte superior da viga (alongando), e $R_2$ e $R_3$ são fixados nas mesmas posições, mas na parte inferior da viga (comprimindo), há a compensação do efeito da temperatura, e a Equação \ref{eq:wheatstone-deltaE-completa} apresenta a expressão da variação de tensão nos terminais da ponte.
+
+\begin{equation}
+	\Delta E=\frac{V r}{(r+1)^2}\left [ \frac{\Delta R_1}{R_1}-\frac{\Delta R_2}{R_2}-\frac{\Delta R_3}{R_3}+\frac{\Delta R_4}{R_4} \right ]=\frac{\Delta R}{R}.V
+	\label{eq:wheatstone-deltaE-completa}
+\end{equation}
+
+Com certeza essa é o melhor dos 3 casos apresentados, haja vista que a sensibilidade da célula, conforme a Equação \ref{eq:wheatstone-sensibilidade-celula} , fica quatro vezes maior do que o caso de 1/4 ponte.
+
+\begin{equation}
+	S_c=\frac{\Delta E}{\varepsilon}
+	\label{eq:wheatstone-sensibilidade-celula}
+\end{equation}
 
 \section{Célula de carga comercial}
 
