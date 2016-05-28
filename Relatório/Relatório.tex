@@ -214,6 +214,46 @@ Considerando que a resistência elétrica nominal da célula de carga quando em 
 
 \noindent onde os resistores $R_2$ e $R_4$ são resistores cujo valor deve ser o mais próximo possível do valor nominal dos extensômetros da ponte e $R+$ e $R-$ são os extensômetros com variação, respectivamente, positiva e negativa, de resistência elétrica em função da deformação da barra.
 
+Todas medidas de tensão elétrica da célula foram feitas utilizando o LabVIEW versão 7.1 disponibilizada pelo laboratório com auxílio dos dispositivos de DAQ da National Instruments modelo USB-6009. Conforme o fabricante \cite{daq-specifications} a entrada analógica deste dispositivo possui 14 bits, taxa de amostragem de 48 kS/s e resolução de tensão elétrica de 1.53mV. O sinal de saída foi amostrado à uma taxa de 1000 Hz com 500 amostras e a média destes valores era tomado como uma única medida experimental. Este processo visa minimizar o impacto do ruído aditivo gaussiano branco (AWGN) gerado pelo circuito de condicionamento na medida realizada.
+
+O circuito de condicionamento consistia em um amplificador de instrumentação (AI) INA126AP fabricado pela Texas Instruments com \textit{bias} de corrente de entrada máxima de 25 nA \cite{datasheet-ina126} configurado com ganho de \todo{quanto?}. O circuito de condicionamento foi alimentado utilizando um regulador de tensão elétrica positivo LM7805 de $5V \pm 0,2V$ \cite{datasheet-lm7805} fabricado pela Fairchild Semiconductors e com um regulador de tensão elétrica negativo LM7905 de $-5V \pm 0,2V$ \cite{datasheet-lm7905} fabricado pela Texas Instruments. A ponte de Wheatstone da célula de carga foi alimentada utilizando a referência de tensão elétrica REF02 de $5V \pm 0,01V$ \cite{datasheet-ref02} fabricado pela Texas Instruments.
+
+%A Figura \ref{fig:celula-nao-comercial-metodologia-condicionamento} apresenta o esquemático elétrico do circuito de condicionamento da célula de carga.
+%
+%\begin{figure}[H]
+%\center
+%\includegraphics[width=\textwidth]{Comercial-Circuito.pdf}
+%\caption{Esquemático elétrico do circuito de condicionamento da célula de carga comercial}
+%\label{fig:celula-nao-comercial-metodologia-condicionamento}
+%\end{figure}
+%
+%\noindent onde a alimentação de $+5V$ representa a referência de tensão elétrica REF02, os resistores representam de forma simbólica a ponte de Wheatstone interna da célula de carga (o fabricante não informa de forma exata a topologia de construção da ponte nem valores de resistores que colaboram no balanço da ponte), o amplificador AI é um amplificador de instrumentação com ganho de \todo{quanto?} e $V_{out}$ é a tensão elétrica de saída da ponte, filtrado, amostrado pelo DAQ e medido no LabVIEW.
+%
+%O circuito de amostragem consistia em um filtro passa-baixas de Butterworth de ordem 4 com frequência de corte de 100Hz utilizando a topologia de filtros analógicos ativos de Sallen-Key. Como amplificador operacional para a implementação do filtro, utilizou-se o amplificador operacional encapsulado TL084 da Texas Instruments com distorção harmônica total típica de $0,003\%$ \cite{datasheet-tl084}.
+
+A Figura \ref{fig:celula-nao-comercial-cadeia-transducao} apresenta a cadeia de transdução completa utilizada no experimento.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{NaoComercial-Cadeia-Transducao.pdf}
+\caption{Cadeia de transdução completa do experimento com a célula de carga não-comercial}
+\label{fig:celula-nao-comercial-cadeia-transducao}
+\end{figure}
+
+\todo{cadeia de medida}
+
+Para estimar a frequência natural de ressonância do sistema, um experimento de aquisição de dados temporalmente foi projetado. Neste experimento a barra foi batida com uma ferramenta de metal e sem carga. O curva temporal de resposta da barra foi adquirida e armazenada num arquivo TSV (\textit{tab separated values}), após, utilizando softwares de processamento matemático, foi extraída a transformada de Fourier deste sinal.
+
+A transformada de Fourier do sinal deve possuir picos de magnitude na frequência natural de vibração da célula. Isto se deve ao fato da barra ter uma tendência a vibrar em algumas tendências específicas e amortecer outras frequências não-harmônicas desta fundamental. Este resultado é importante, pois caso a viga esteja próxima de alguma fonte capaz de produzir vibrações nesta frequência a célula pode entrar em ressonância e quebrar ou ter danos estruturais.
+
+Outra análise importante a ser feita com sensores resistivos é de resposta térmica. Saber se um sistema de medida tem variação da temperatura e como ele varia com a temperatura é fundamental. Um sistema ideal é invariante em função da temperatura, isto é, independente da temperatura sua resposta é sempre igual. Na realidade, isto é muito difícil de acontecer, resistências elétricas variam com a temperatura e sistemas mecânicos deformam e dilatam com a variação de temperatura.
+
+Uma das vantagens do uso de ponte de Wheatstone completa ou 1/2 ponte, com 2 ou 4 sensores, é que é a forma mais robusta em função da variação de temperatura, a variação de resistência dos extensômetros devido à variação térmica é mínima e considerando que o aquecimento se dê de forma uniforme nos 4 sensores, o efeito de aquecimento é anulado pela própria ponte de Wheatstone.
+
+Neste experimento a fim de determinar o comportamento do sistema quando aquecido foi aquecido a extremidade inferior da célula (longe do extensômetro) durante 4 minutos. Estes dados foram adquiridos e filtrados digitalmente para remover o ruído gerado pelo circuito de condicionamento e conversor analógico-digital da placa de aquisição de dados.
+
+À primeira vista pensa-se que por se tratar de uma meia-ponte, a variação térmica deve ser nula. Isto, contudo, não é verdade. É impossível, sob as condições existentes, garantir que a barra tenha aquecimento homogêneo e, portanto, provoque a mesma variação de resistência elétrica correlacionada com o aumento de temperatura. Dessa forma, espera-se haja uma pequena variação da tensão de saída da ponte com o aquecimento.
+
 \subsection{Modelo computacional}
 A fim de realizar uma validação computacional dos resultados, foi desenvolvido um modelo computacional para a célula de carga não-comercial no software SOLIDWORKS 2016 x64 e realizada utilizando o método FFEPlus com a opção de \textit{large displacement} desativada.
 
