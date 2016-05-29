@@ -258,9 +258,9 @@ A célula de carga não comercial utilizada possuía a configuração dada na Fi
 \label{fig:celula-nao-comercial-desenho}
 \end{figure}
 
-\noindent onde o extensômetro $(+)$ indica uma deformação positiva (alongamento) e o extensômetro $(-)$ indica uma deformação negativa (compressão). É importante observar que a célula possuía um extensômetro na parte superior (próximo à base de suporte) e outro extensômetro na mesma posição, mas na face inferior da barra. Em termos prático, isto significa que para uma mesma deformação, o variação de resistência elétrica em ambos os extensometros é idêntica em módulo, mas com diferente sinal. Este comportamento é importante pois espera-se que a saída da ponte de Wheatstone fique constante com o aquecimento da barra, fato que não aconteceria caso fosse utilizada a mesma face da ponte para a colagem dos extensômetros.
+\noindent onde o extensômetro $(+)$ indica uma deformação positiva (alongamento) e o extensômetro $(-)$ indica uma deformação negativa (compressão). É importante observar que a célula possuía um extensômetro na parte superior (próximo à base de suporte) e outro extensômetro na mesma posição, mas na face inferior da barra. Em termos práticos, isto significa que para uma mesma deformação, o variação de resistência elétrica em ambos os extensômetros é idêntica em módulo, mas com diferente sinal. Este comportamento é importante pois espera-se que a saída da ponte de Wheatstone fique constante com o aquecimento da barra, fato que não aconteceria caso fosse utilizada a mesma face da ponte para a colagem dos extensômetros.
 
-Ao contrário da célula comercial, esta nao possui a ponte pré-calibrada e, portanto, se fez necessário que a ponte fosse calibrada e ajustada para obter o resultado desejado. De acordo com a especificação dos extensômetros (modelos e fabricantes não estavam explícitos sobre a construção, logo, não foi possível comparar com os valores fornecidos pelo fabricante). Havia, contudo, uma marcação indicando o valor de resistência nominal do extensômetro.
+Ao contrário da célula comercial, esta não possui a ponte pré-calibrada e, portanto, se fez necessário que a ponte fosse calibrada e ajustada para obter o resultado desejado. Como não havia especificação dos extensômetros (modelos e fabricantes não estavam explícitos sobre a construção) não foi possível comparar com os valores fornecidos pelo fabricante. Havia, contudo, uma marcação indicando o valor de resistência nominal do extensômetro.
 
 Considerando que a resistência elétrica nominal da célula de carga quando em repouso seja de $350 \Omega$ com incerteza desconhecida, é possível calcular os resistores para os demais braços da ponte de Wheatstone. A Figura \ref{fig:celula-nao-comercial-ponte}
 
@@ -303,13 +303,13 @@ A Figura \ref{fig:celula-nao-comercial-cadeia-transducao} apresenta a cadeia de 
 
 Para estimar a frequência natural de ressonância do sistema, um experimento de aquisição de dados temporalmente foi projetado. Neste experimento a barra foi batida com uma ferramenta de metal e sem carga. O curva temporal de resposta da barra foi adquirida e armazenada num arquivo TSV (\textit{tab separated values}), após, utilizando softwares de processamento matemático, foi extraída a transformada de Fourier deste sinal.
 
-A transformada de Fourier do sinal deve possuir picos de magnitude na frequência natural de vibração da célula. Isto se deve ao fato da barra ter uma tendência a vibrar em algumas tendências específicas e amortecer outras frequências não-harmônicas desta fundamental. Este resultado é importante, pois caso a viga esteja próxima de alguma fonte capaz de produzir vibrações nesta frequência a célula pode entrar em ressonância e quebrar ou ter danos estruturais.
+A transformada de Fourier do sinal deve possuir picos de magnitude na frequência natural de vibração da célula. Isto se deve ao fato da barra ter uma tendência a vibrar em algumas frequências específicas e amortecer outras frequências não-harmônicas desta fundamental. Este resultado é importante, pois caso a viga esteja próxima de alguma fonte capaz de produzir vibrações nesta frequência a célula pode entrar em ressonância e quebrar ou ter danos estruturais.
 
 Outra análise importante a ser feita com sensores resistivos é de resposta térmica. Saber se um sistema de medida tem variação da temperatura e como ele varia com a temperatura é fundamental. Um sistema ideal é invariante em função da temperatura, isto é, independente da temperatura sua resposta é sempre igual. Na realidade, isto é muito difícil de acontecer, resistências elétricas variam com a temperatura e sistemas mecânicos deformam e dilatam com a variação de temperatura.
 
 Uma das vantagens do uso de ponte de Wheatstone completa ou 1/2 ponte, com 2 ou 4 sensores, é que é a forma mais robusta em função da variação de temperatura, a variação de resistência dos extensômetros devido à variação térmica é mínima e considerando que o aquecimento se dê de forma uniforme nos 4 sensores, o efeito de aquecimento é anulado pela própria ponte de Wheatstone.
 
-Neste experimento a fim de determinar o comportamento do sistema quando aquecido foi aquecido a extremidade inferior da célula (longe do extensômetro) durante 4 minutos. Estes dados foram adquiridos e filtrados digitalmente para remover o ruído gerado pelo circuito de condicionamento e conversor analógico-digital da placa de aquisição de dados.
+Neste experimento a fim de determinar o comportamento do sistema quando aquecido foi aquecido a extremidade inferior da célula (longe dos extensômetros) durante 4 minutos. Estes dados foram adquiridos e filtrados digitalmente para remover o ruído gerado pelo circuito de condicionamento e conversor analógico-digital da placa de aquisição de dados.
 
 À primeira vista pensa-se que por se tratar de uma meia-ponte, a variação térmica deve ser nula. Isto, contudo, não é verdade. É impossível, sob as condições existentes, garantir que a barra tenha aquecimento homogêneo e, portanto, provoque a mesma variação de resistência elétrica correlacionada com o aumento de temperatura. Dessa forma, espera-se haja uma pequena variação da tensão de saída da ponte com o aquecimento.
 
@@ -318,16 +318,14 @@ O processo de aquisição de dados para a análise de frequência fundamental co
 \subsection{Modelo computacional}
 A fim de realizar uma validação computacional dos resultados, foi desenvolvido um modelo computacional para a célula de carga não-comercial no software SOLIDWORKS 2016 x64 e realizada utilizando o método FFEPlus com a opção de \textit{large displacement} desativada.
 
-Na simulação de análise estática da célula, foi aplicada uma força de ??? N \todo{quanto?} sobre o furo presente na barra. A Figura \ref{fig:celula-nao-comercial-solid-modelo} apresenta o modelo 3D desenvolvido no software:
+Na simulação de análise estática da célula, foi aplicada uma força de 4N sobre o furo presente na barra. A Figura \ref{fig:celula-nao-comercial-solid-modelo} apresenta o modelo 3D desenvolvido no software:
 
 \begin{figure}[H]
 \center
-%\includegraphics[width=\textwidth]{WheatstoneNaoComercial.pdf}
-...
+\includegraphics[width=0.7\textwidth]{CelulaNaoComercial_solid.jpg}
 \caption{Modelo 3D utilizado para a simulação da célula de carga não-comercial no SOLIDWORKS.}
 \label{fig:celula-nao-comercial-solid-modelo}
 \end{figure}
-\todo{figura solid}
 
 \noindent onde a superfície de aplicação da força é o orifício utilizado para exercer as forças durante a execução do experimento no laboratório.
 
@@ -338,9 +336,9 @@ A fim de determinar a frequência fundamental da vibração do sistema, foi real
 \todo{função de transferencia teórica}
 
 \section{Torquímetro}
-Neste experimento foi utilizado um torquímetro cujo ponto de maior torque (no eixo do torquímetro) haviam 4 extensômetros cimentados nos 4 lados do metal do cabo, portanto uma ponte completa. Com este sistema, é possível medir o toque exercido pelo operador no instrumento.
+Neste experimento foi utilizado um torquímetro GEDORE FLEX-O-TORK Nº 4657 cujo ponto de maior torque (no eixo do torquímetro) haviam 4 extensômetros cimentados nos 4 lados do metal do cabo, portanto uma ponte completa. Com este sistema, é possível medir o toque exercido pelo operador no instrumento.
 
-O torquímetro já estava construído e possuía 4 fios: 2 de alimentação (terra e alimentação positiva) e outros 2 fios para a saída: positivo e negativo. Para extrair a função de transferência do torquímetro foi aplicado torque utilizando o medidor físico gravado sobre o instrumento nos valores \todo{quais valores de torque?}
+O torquímetro já estava construído e possuía 4 fios: 2 de alimentação (terra e alimentação positiva) e outros 2 fios para a saída: positivo e negativo. Para extrair a função de transferência do torquímetro foi aplicado torque utilizando o medidor físico gravado sobre o instrumento na faixa de 0 a 60$lbf.ft$ (\textit{pound-force foot}).
 
 \todo{função de transferencia teórica}
 \todo{cadeia de medidas}
