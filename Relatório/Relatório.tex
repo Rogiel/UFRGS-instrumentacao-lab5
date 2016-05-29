@@ -31,6 +31,7 @@
 \headertext{Extensometria}
 
 \begin{document}
+\fontsize{12pt}{16pt}\selectfont
 \maketitle
 
 \chapter{Introdução}
@@ -219,7 +220,7 @@ De acordo com o fabricante a sensibilidade da célula é de $2 mV/V$ e possui $3
 
 Todas medidas de tensão elétrica da célula foram feitas utilizando o LabVIEW versão 7.1 disponibilizada pelo laboratório com auxílio dos dispositivos de DAQ da National Instruments modelo USB-6009. Conforme o fabricante \cite{daq-specifications} a entrada analógica deste dispositivo possui 14 bits, taxa de amostragem de 48 kS/s e resolução de tensão elétrica de 1.53mV. O sinal de saída foi amostrado à uma taxa de 1000 Hz com 500 amostras e a média destes valores era tomado como uma única medida experimental. Este processo visa minimizar o impacto do ruído aditivo gaussiano branco (AWGN) gerado pelo circuito de condicionamento na medida realizada.
 
-O circuito de condicionamento consistia em um amplificador de instrumentação (AI) INA126AP fabricado pela Texas Instruments com \textit{bias} de corrente de entrada máxima de 25 nA \cite{datasheet-ina126} configurado com ganho de \todo{quanto?}. O circuito de condicionamento foi alimentado utilizando um regulador de tensão elétrica positivo LM7805 de $5V \pm 0,2V$ \cite{datasheet-lm7805} fabricado pela Fairchild Semiconductors e com um regulador de tensão elétrica negativo LM7905 de $-5V \pm 0,2V$ \cite{datasheet-lm7905} fabricado pela Texas Instruments. A célula de carga foi alimentada utilizando a referência de tensão elétrica REF02 de $5V \pm 0,01V$ \cite{datasheet-ref02} fabricado pela Texas Instruments.
+O circuito de condicionamento consistia em um amplificador de instrumentação (AI) INA126AP fabricado pela Texas Instruments com \textit{bias} de corrente de entrada máxima de 25 nA \cite{datasheet-ina126} configurado com ganho de 29.24 vezes. O circuito de condicionamento foi alimentado utilizando um regulador de tensão elétrica positivo LM7805 de $5V \pm 0,2V$ \cite{datasheet-lm7805} fabricado pela Fairchild Semiconductors e com um regulador de tensão elétrica negativo LM7905 de $-5V \pm 0,2V$ \cite{datasheet-lm7905} fabricado pela Texas Instruments. A célula de carga foi alimentada utilizando a referência de tensão elétrica REF02 de $5V \pm 0,01V$ \cite{datasheet-ref02} fabricado pela Texas Instruments.
 
 A Figura \ref{fig:celula-comercial-metodologia-condicionamento} apresenta o esquemático elétrico do circuito de condicionamento da célula de carga.
 
@@ -230,7 +231,7 @@ A Figura \ref{fig:celula-comercial-metodologia-condicionamento} apresenta o esqu
 \label{fig:celula-comercial-metodologia-condicionamento}
 \end{figure}
 
-\noindent onde a alimentação de $+5V$ representa a referência de tensão elétrica REF02, os resistores representam de forma simbólica a ponte de Wheatstone interna da célula de carga (o fabricante não informa de forma exata a topologia de construção da ponte nem valores de resistores que colaboram no balanço da ponte), o amplificador AI é um amplificador de instrumentação com ganho de \todo{quanto?} e $V_{out}$ é a tensão elétrica de saída da ponte, filtrado, amostrado pelo DAQ e medido no LabVIEW.
+\noindent onde a alimentação de $+5V$ representa a referência de tensão elétrica REF02, os resistores representam de forma simbólica a ponte de Wheatstone interna da célula de carga (o fabricante não informa de forma exata a topologia de construção da ponte nem valores de resistores que colaboram no balanço da ponte), o amplificador AI é um amplificador de instrumentação com ganho de 29.24 e $V_{out}$ é a tensão elétrica de saída da ponte, filtrado, amostrado pelo DAQ e medido no LabVIEW.
 
 O circuito de amostragem consistia em um filtro passa-baixas de Butterworth de ordem 4 com frequência de corte de 100Hz utilizando a topologia de filtros analógicos ativos de Sallen-Key. Como amplificador operacional para a implementação do filtro, utilizou-se o amplificador operacional encapsulado TL084 da Texas Instruments com distorção harmônica total típica de $0,003\%$ \cite{datasheet-tl084}.
 
@@ -265,7 +266,7 @@ Considerando que a resistência elétrica nominal da célula de carga quando em 
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{WheatstoneNaoComercial.pdf}
-\caption{Esquemático elétrico da ponte de Wheatstone para a célula de carga não-comercial. O modelo escolhido foi utilizar uma meia-ponte, com variação positiva e outra negativa.}
+\caption{Esquemático elétrico da ponte de Wheatstone para a célula de carga não-comercial. O modelo escolhido foi utilizar uma meia-ponte, com ambos SGs com variação positiva.}
 \label{fig:celula-nao-comercial-ponte}
 \end{figure}
 
@@ -273,7 +274,7 @@ Considerando que a resistência elétrica nominal da célula de carga quando em 
 
 Todas medidas de tensão elétrica da célula foram feitas utilizando o LabVIEW versão 7.1 disponibilizada pelo laboratório com auxílio dos dispositivos de DAQ da National Instruments modelo USB-6009. Conforme o fabricante \cite{daq-specifications} a entrada analógica deste dispositivo possui 14 bits, taxa de amostragem de 48 kS/s e resolução de tensão elétrica de 1.53mV. O sinal de saída foi amostrado à uma taxa de 1000 Hz com 500 amostras e a média destes valores era tomado como uma única medida experimental. Este processo visa minimizar o impacto do ruído aditivo gaussiano branco (AWGN) gerado pelo circuito de condicionamento na medida realizada.
 
-O circuito de condicionamento consistia em um amplificador de instrumentação (AI) INA126AP fabricado pela Texas Instruments com \textit{bias} de corrente de entrada máxima de 25 nA \cite{datasheet-ina126} configurado com ganho de \todo{quanto?}. O circuito de condicionamento foi alimentado utilizando um regulador de tensão elétrica positivo LM7805 de $5V \pm 0,2V$ \cite{datasheet-lm7805} fabricado pela Fairchild Semiconductors e com um regulador de tensão elétrica negativo LM7905 de $-5V \pm 0,2V$ \cite{datasheet-lm7905} fabricado pela Texas Instruments. A ponte de Wheatstone da célula de carga foi alimentada utilizando a referência de tensão elétrica REF02 de $5V \pm 0,01V$ \cite{datasheet-ref02} fabricado pela Texas Instruments.
+O circuito de condicionamento consistia em um amplificador de instrumentação (AI) INA126AP fabricado pela Texas Instruments com \textit{bias} de corrente de entrada máxima de 25 nA \cite{datasheet-ina126} configurado com ganho de 29.24. O circuito de condicionamento foi alimentado utilizando um regulador de tensão elétrica positivo LM7805 de $5V \pm 0,2V$ \cite{datasheet-lm7805} fabricado pela Fairchild Semiconductors e com um regulador de tensão elétrica negativo LM7905 de $-5V \pm 0,2V$ \cite{datasheet-lm7905} fabricado pela Texas Instruments. A ponte de Wheatstone da célula de carga foi alimentada utilizando a referência de tensão elétrica REF02 de $5V \pm 0,01V$ \cite{datasheet-ref02} fabricado pela Texas Instruments.
 
 %A Figura \ref{fig:celula-nao-comercial-metodologia-condicionamento} apresenta o esquemático elétrico do circuito de condicionamento da célula de carga.
 %
