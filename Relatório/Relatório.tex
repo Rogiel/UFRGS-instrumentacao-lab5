@@ -254,8 +254,6 @@ A Figura \ref{fig:celula-comercial-cadeia-medidas} mostra a cadeia de medidas pr
 \end{figure}
 
 
-\todo{função de transferencia teórica}
-
 \section{Célula de carga não-comercial}
 
 A célula de carga não comercial utilizada possuía a configuração dada na Figura \ref{fig:celula-nao-comercial-desenho}:
@@ -347,7 +345,6 @@ Nesta simulação foi possível estimar a deformação da barra para os valores 
 
 A fim de determinar a frequência fundamental da vibração do sistema, foi realizada uma simulação dinâmica de frequência do sistema. Nesta simulação a frequência fundamental de vibração do sistema foi extraída e validada com o experimento em que uma batida é feita na barra e pela vibração medida pelo extensômetro é possível estimar a frequência fundamental de vibração do sistema.
 
-\todo{função de transferencia teórica}
 
 \section{Torquímetro}
 Neste experimento foi utilizado um torquímetro GEDORE FLEX-O-TORK Nº 4657 cujo ponto de maior torque (no eixo do torquímetro) haviam 4 extensômetros cimentados nos 4 lados do metal do cabo, portanto uma ponte completa. Com este sistema, é possível medir o toque exercido pelo operador no instrumento.
@@ -379,8 +376,6 @@ A Figura \ref{fig:torquimetro-cadeia-medidas} mostra a cadeia de medidas propost
 \caption{Cadeia de medidas proposta para o experimento com o torquímetro}
 \label{fig:torquimetro-cadeia-medidas}
 \end{figure}
-
-\todo{função de transferencia teórica}
 
 \chapter{Resultados e Discussões}
 
@@ -429,11 +424,11 @@ A Tabela \ref{tab:celula-comercial-resultado-funcao-transferencia} apresenta as 
 A função que melhor ajusta os dados da Tabela \ref{tab:celula-comercial-resultado-funcao-transferencia} é dada na Equação \ref{eq:celula-comercial-resultado-funcao-transferencia}
 
 \begin{equation}
-	m(V) = 32.9198 - 17,3681 V
+	m(V) = 32.9198 - 17.3681 V
 	\label{eq:celula-comercial-resultado-funcao-transferencia}
 \end{equation}
 
-\noindent onde $m(V)$ é a massa em $kg$ a qual a viga está submetida e $V$ é a tensão elétrica em $V$ medida na saída de ponte de Wheatstone com o sensor.
+\noindent onde $m(V)$ é a massa em $kg$ a qual a viga está submetida e $V$ é a tensão elétrica em $volts$ medida na saída da ponte de Wheatstone com o sensor.
 
 A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-comercial-resultado-funcao-transferencia-r2}
 
@@ -458,7 +453,7 @@ A Figura \ref{fig:celula-comercial-resultado-funcao-transferencia} apresenta um 
 
 Com a função de transferência é possível aplicá-la nos dados adquiridos em laboratórios e obter a resposta da célula para a adição ou remoção de carga.
 
-A Figura \ref{fig:celula-comercial-resultado-0-1kg} apresenta a resposta da célula quando adicionado um peso suspenso  de $1 kg$ na barra. Uma força equivalente de aproximadamente 10N é exercida sobre a barra (assumindo que a aceleração da gravidade local $g$ seja de $10 m/s^2$. A curva foi filtrada por um filtro passa-baixas digital com frequência de corte de 5Hz para reduzir o efeito do ruído gerado pelo circuito de condicionamento.
+A Figura \ref{fig:celula-comercial-resultado-0-1kg} apresenta a resposta da célula quando adicionado uma massa suspensa de $1 kg$ na barra. Uma força equivalente de aproximadamente 10N é exercida sobre a barra (assumindo que a aceleração da gravidade local $g$ seja de $10 m/s^2$). A curva foi filtrada por um filtro passa-baixas digital com frequência de corte de 5Hz para reduzir o efeito do ruído gerado pelo circuito de condicionamento.
 
 \begin{figure}[H]
 \center
@@ -467,7 +462,7 @@ A Figura \ref{fig:celula-comercial-resultado-0-1kg} apresenta a resposta da cél
 \label{fig:celula-comercial-resultado-0-1kg}
 \end{figure}
 
-Na Figura \ref{fig:celula-comercial-resultado-0-1kg} é possível observar que o tempo de resposta é baixo, de fato, nem é perceptível o tempo que ele leva para responder, uma vez que o fator mais notável no formato da curva não é a resposta do sensor nem da viga, mas a forma de como a carga era solta na viga. Era necessário segurar o peso para que a vibração do peso tivesse menor impacto na medida e este processo demorava aproximadamente 1 segundo como pode ser visto na curva.
+Na Figura \ref{fig:celula-comercial-resultado-0-1kg} é possível observar que o tempo de resposta é baixo, de fato, nem é perceptível o tempo que ele leva para responder, uma vez que o fator mais notável no formato da curva não é a resposta do sensor nem da viga, mas a forma de como a carga era solta na viga. Era necessário segurar o peso para que a vibração do peso tivesse menor impacto na medida e este processo demorava aproximadamente 1 segundo, como pode ser visto na curva.
 
 A Figura \ref{fig:celula-comercial-resultado-0-4kg} apresenta a resposta da célula quando adicionado um peso suspenso de $4 kg$ na barra. A curva foi filtrada por um filtro passa-baixas digital com frequência de corte de 5Hz para reduzir o efeito do ruído gerado pelo circuito de condicionamento.
 
@@ -478,7 +473,7 @@ A Figura \ref{fig:celula-comercial-resultado-0-4kg} apresenta a resposta da cél
 \label{fig:celula-comercial-resultado-0-4kg}
 \end{figure}
 
-A Figura \ref{fig:celula-comercial-resultado-0-4kg} é possível observar que a célula continua linear no intervalo de 4 kg e o valor de estabilidade da célula está muito próximo da 4kg ao final do tempo de 5 segundos. Entretanto, há um pequeno \textit{offset} no ponto de 0 kg que acredita-se ser devido à problemas no circuito de condicionamento. Esta hipótese não foi testada. A Figura \ref{fig:celula-comercial-resultado-0-4kg-etapa} apresenta um sistema equivalente ao da Figura \ref{fig:celula-comercial-resultado-0-4kg} contudo desta vez a massa foi adicionada em duas etapas, primeiramente somente 2kg foram suspensos e logo após mais uma segunda massa de 2kg foi suspensa, totalizando 4kg suspenso na viga. É possível ver claramente o tempo em que cada massa foi adicionada ao sistema.
+A Figura \ref{fig:celula-comercial-resultado-0-4kg} é possível observar que a célula continua linear no intervalo de 4 kg e o valor de estabilidade da célula está muito próximo de 4kg ao final do tempo de 5 segundos. Entretanto, há um pequeno \textit{offset} no ponto de 0 kg que acredita-se ser devido a problemas no circuito de condicionamento. Esta hipótese não foi testada. A Figura \ref{fig:celula-comercial-resultado-0-4kg-etapa} apresenta um sistema equivalente ao da Figura \ref{fig:celula-comercial-resultado-0-4kg} contudo desta vez a massa foi adicionada em duas etapas, primeiramente somente 2kg foram suspensos e logo após mais uma segunda massa de 2kg foi suspensa, totalizando 4kg suspenso na viga. É possível ver claramente o tempo em que cada massa foi adicionada ao sistema.
 
 \begin{figure}[H]
 \center
@@ -502,7 +497,7 @@ Outro fato interessante que é possível observar na Figura \ref{fig:celula-come
 
 É possível dizer que a viga retornou ao valor inicial com a remoção da carga. É possível afirmar isto, pois a resolução de função de transferência medida foi de 0,2 kg e é possível observar que o valor final está ao redor do zero (isto é, está muito mais próximo do zero do que do 0,2kg).
 
-A Figura \ref{fig:celula-comercial-resultado-4-0kg} apresenta a curva temporal de remoção de carga quando a viga está submetida à uma massa suspensa de 4kg e toda carga é removida de uma vez só.
+A Figura \ref{fig:celula-comercial-resultado-4-0kg} apresenta a curva temporal de remoção de carga quando a viga está submetida a uma massa suspensa de 4kg e toda carga é removida de uma vez só.
 
 \begin{figure}[H]
 \center
@@ -541,7 +536,7 @@ A função que melhor ajusta os dados da Tabela \ref{tab:celula-nao-comercial-re
 	\label{eq:celula-nao-comercial-resultado-funcao-transferencia}
 \end{equation}
 
-\noindent onde $m(V)$ é a massa em $kg$ a qual a célula de carga está submetida e $V$ é a tensão elétrica em $V$ medida na saída de ponte de Wheatstone com o sensor. A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia-r2}
+\noindent onde $m(V)$ é a massa em $kg$ a qual a célula de carga está submetida e $V$ é a tensão elétrica em $volts$ medida na saída da ponte de Wheatstone com o sensor. A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia-r2}
 
 \begin{equation}
 	R^2 = 0.992582
@@ -564,6 +559,76 @@ A Figura \ref{fig:celula-nao-comercial-resultado-funcao-transferencia} apresenta
 
 \subsection{Modelo computacional}
 
+Os resultados obtidos por meio da modelagem computacional da célula de carga não comercial, na análise estática, para a tensão mecânica, deslocamento e deformação da célula para uma força aplicada de 4N são verificados a seguir.
+
+Na Figura \ref{fig:celula-nao-comercial-computacional-tensao} é possível verificar que a maior tensão de Von Mises, ou tensão de cisalhamento, ocorre próximo ao ponto de engaste da viga.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CelulaNaoComercial_solid_tensao.jpg}
+\caption{Resultado computacional para tensão de Von Mises para aplicação de 4N na célula não comercial}
+\label{fig:celula-nao-comercial-computacional-tensao}
+\end{figure}
+
+Já a Figura \ref{fig:celula-nao-comercial-computacional-deslocamento} apresenta o deslocamento sofrido pela célula na simulação. Como era esperado, a parte de maior deslocamento ocorre na extremidade que está livre, no lado oposto ao engaste.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CelulaNaoComercial_solid_deslocamento.jpg}
+\caption{Resultado computacional para o deslocamento devido à aplicação de 4N na célula não comercial}
+\label{fig:celula-nao-comercial-computacional-deslocamento}
+\end{figure}
+
+Quanto à deformação, a Figura \ref{fig:celula-nao-comercial-computacional-tensao} apresenta o resultado da simulação, na qual verifica-se que a região de maior deformação ocorre também próximo ao ponto de engaste da viga. Esta simulação é de extrema importância no estudo de montagens de células de cargas com o uso de extensômetros, pois esses devem ser colocados, sempre que possível, na região de maior deformação do material.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CelulaNaoComercial_solid_deformacao.jpg}
+\caption{Resultado computacional para a deformação devido à aplicação de 4N na célula não comercial}
+\label{fig:celula-nao-comercial-computacional-deformacao}
+\end{figure}
+
+Na análise dinâmica em frequência da simulação computacional, foram analisados seus respectivos modos de vibração. A Tabela \ref{tab:celula-na-comercial-computacional-modos} apresenta os cinco primeiros modos de vibração observados pela simulação.
+
+\begin{table}[H]
+\centering
+\caption{Modos de vibração resultantes da análise dinâmica da simulação computacional da célula não comercial}
+\label{tab:celula-na-comercial-computacional-modos}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Modo de Vibração} & \textbf{Rad/seg} & \textbf{Hz} & \textbf{Segundos} \\ \hline
+1                         & 121.62           & 19.357      & 0.051662          \\ \hline
+2                         & 762.15           & 121.3       & 0.008244          \\ \hline
+3                         & 1027.9           & 163.59      & 0.0061129         \\ \hline
+4                         & 2134.4           & 339.71      & 0.0029437         \\ \hline
+5                         & 2813.8           & 447.83      & 0.002233          \\ \hline
+\end{tabular}
+\end{table}
+
+Nas Figuras \ref{fig:celula-nao-comercial-computacional-modo1}, \ref{fig:celula-nao-comercial-computacional-modo2} e \ref{fig:celula-nao-comercial-computacional-modo3} é possível verificar os três primeiros modos de vibração simulados. Os resultados dos outros dois modos são um pouco exagerados e não cabem ser apresentados.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CelulaNaoComercial_solid_modo1.jpg}
+\caption{Resultado computacional para a deformação devido ao Modo de Vibração 1 na aplicação de 4N na célula não comercial}
+\label{fig:celula-nao-comercial-computacional-modo1}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CelulaNaoComercial_solid_modo2.jpg}
+\caption{Resultado computacional para a deformação devido ao Modo de Vibração 2 na aplicação de 4N na célula não comercial}
+\label{fig:celula-nao-comercial-computacional-modo2}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CelulaNaoComercial_solid_modo3.jpg}
+\caption{Resultado computacional para a deformação devido ao Modo de Vibração 3 na aplicação de 4N na célula não comercial}
+\label{fig:celula-nao-comercial-computacional-modo3}
+\end{figure}
+
+A análise, tanto estática quanto dinâmica, da estrutura de uma célula de carga se faz importante para se poder mensurar alguns limites de trabalhos, verificar melhores pontos de aplicação de força e de deformação, e também para precaver quanto a futuros rompimentos da estrutura devido à  exposição nas suas frequências de ressonância.
 
 \subsection{Resposta temporal}
 
