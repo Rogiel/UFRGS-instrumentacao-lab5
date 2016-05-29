@@ -201,7 +201,7 @@ Com certeza essa é o melhor dos 3 casos apresentados, haja vista que a sensibil
 
 \section{Célula de carga comercial}
 
-Neste experimento foi levantada a função de transferência experimental para uma viga engastada utilizando uma célula de carga comercial \todo{marca e outros detalhes da célula}.
+Neste experimento foi levantada a função de transferência experimental para uma viga engastada utilizando uma célula de carga comercial "REACCION BCD-5" manufaturada por "FLEXAR Celdas de Carga".
 
 Na Figura \ref{fig:celula-comercial-esquema-fisico} está apresentado um esquemático físico da célula de carga comercial utilizada:
 
@@ -245,6 +245,7 @@ A Figura \ref{fig:celula-comercial-cadeia-transducao} apresenta a cadeia de tran
 \end{figure}
 
 \todo{cadeia de medida}
+\todo{função de transferencia teórica}
 
 \section{Célula de carga não-comercial}
 
@@ -334,10 +335,15 @@ Nesta simulação foi possível estimar a deformação da barra para os valores 
 
 A fim de determinar a frequência fundamental da vibração do sistema, foi realizada uma simulação dinâmica de frequência do sistema. Nesta simulação a frequência fundamental de vibração do sistema foi extraída e validada com o experimento em que uma batida é feita na barra e pela vibração medida pelo extensômetro é possível estimar a frequência fundamental de vibração do sistema.
 
+\todo{função de transferencia teórica}
+
 \section{Torquímetro}
 Neste experimento foi utilizado um torquímetro cujo ponto de maior torque (no eixo do torquímetro) haviam 4 extensômetros cimentados nos 4 lados do metal do cabo, portanto uma ponte completa. Com este sistema, é possível medir o toque exercido pelo operador no instrumento.
 
 O torquímetro já estava construído e possuía 4 fios: 2 de alimentação (terra e alimentação positiva) e outros 2 fios para a saída: positivo e negativo. Para extrair a função de transferência do torquímetro foi aplicado torque utilizando o medidor físico gravado sobre o instrumento nos valores \todo{quais valores de torque?}
+
+\todo{função de transferencia teórica}
+\todo{cadeia de medidas}
 
 \chapter{Resultados e Discussões}
 
@@ -399,6 +405,7 @@ A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-comercial-r
 	\label{eq:celula-comercial-resultado-funcao-transferencia-r2}
 \end{equation}
 
+% erro de linearidade é em função da TF teórica, então precisa disso antes
 \todo{erro de linearidade}
 
 A Figura \ref{fig:celula-comercial-resultado-funcao-transferencia} apresenta um gráfico com a função de transferência da Equação \ref{eq:celula-comercial-resultado-funcao-transferencia} e os dados da Tabela \ref{tab:celula-comercial-resultado-funcao-transferencia}.
@@ -504,6 +511,7 @@ A função que melhor ajusta os dados da Tabela \ref{tab:celula-nao-comercial-re
 	\label{eq:celula-nao-comercial-resultado-funcao-transferencia-r2}
 \end{equation}
 
+% erro de linearidade é em função da TF teórica, então precisa disso antes
 \todo{erro de linearidade}
 
 A Figura \ref{fig:celula-nao-comercial-resultado-funcao-transferencia} apresenta um gráfico com a função de transferência da Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia} e os dados da Tabela \ref{tab:celula-nao-comercial-resultado-funcao-transferencia}.
@@ -591,25 +599,34 @@ A Figura \ref{fig:celula-nao-comercial-resultado-funcao-transferencia} apresenta
 \label{fig:celula-nao-comercial-resultado-espectro-destaque}
 \end{figure}
 
+\todo{comparar com a simulação}
+
 \section{Torquímetro}
+
+\begin{equation}
+	V(\tau) = -96.38 + 0.88 \tau
+	\label{eq:torquimetro-tf}
+\end{equation}
+% em mv
+
+\begin{equation}
+	R^2 = 0.954728
+	\label{eq:torquimetro-tf-r2}
+\end{equation}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{Torquimetro-Plot.pdf}
+\caption{Função de transferência experimental do torquímetro e medidas experimentais}
+\label{fig:torquimetro-tf}
+\end{figure}
+
+\todo{torquímetro}
+\todo{comparar com a teoria no roteiro}
 
 \chapter{Conclusões}
 
-
-\todo{Tarefa no Laboratório: selecionar duas células disponibilizadas no laboratório de instrumentação (01 célula de carga não comercial do tipo viga engastada e 01 célula de carga comercial do tipo viga engastada – (para a célula de carga comercial ver Figuras 17 ou 18 e Tabelas 8 ou 9 – selecionar apenas 01 modelo da célula comercial)). Desenvolver usando o SolidWorks o correspondente modelo virtual e determinar o comportamento estático e dinâmico do modelo virtual para cada uma das células de carga. Observações: material da célula de carga não comercial é alumínio naval (várias células de carga, não comerciais, estão deformadas, mas mesmo assim trabalhar com as mesmas e suas não idealidades) e da célula comercial é Alumínio Anodizado. Limite de carga: 400g para a célula de carga não comercial e 5kg para a célula de carga comercial!}
-\todo{Tarefa no Laboratório: selecionar a célula de carga (ver Figuras 19 e 20) disponibilizada no Laboratório de Instrumentação. Desenvolver usando o SolidWorks o correspondente modelo virtual e determinar o comportamento estático e dinâmico do modelo virtual. Observações: material da célula de carga é o aço inox AISI304 e a carga limite no eixo principal é de 250N. }
-\todo{Tarefa no Laboratório: usando as duas células de carga (01 não comercial e outra comercial) do item i desenvolver um condicionador de sinais para cada célula de carga. Considerar a margem de carregamento mecânico utilizado na simulação (compatível com os limites de carga fornecidos no item i). Projetar e apresentar a Cadeia de Medida desenvolvida para cada célula de carga. Obter formas de onda no LabVIEW apresentando gráficos com escala e eixos adequados a aplicação. Sugestão: analisar a revisão bibliográfica deste laboratório para auxiliar o grupo no melhor projeto.}
-\todo{Tarefa no Laboratório: considerando-se a célula de carga não comercial - do item anterior (com condicionador incluso): faça uma análise sobre o efeito da variação de temperatura nestas vigas. Como sugestão aplicar rapidamente uma fonte de calor na extremidade livre da célula de carga – LONGE DO EXTENSÔMETRO e verificar o comportamento de sua ponte. Sugestão: realize a aquisição destes dados.}
-\todo{Drift (deriva): remover o maior peso padrão utilizado na calibração estática e imediatamente registrar Vo (registrar durante 5 minutos);}
-\todo{Reprodução dos Valores: recolocar o maior peso padrão e registrar Vo. Remover o peso e imediatamente registrar Vo; }
-\todo{Efeito do aquecimento: suavemente aquecer o topo da barra (sem carga). Registrar qualquer mudança em Vo enquanto aquece (não aquecer mais do que 10C e nunca sobre o strain-gage). Estimar a variação da temperatura. Aquecer a parte de baixo da barra e repetir os procedimentos anteriores deste item. Repetir novamente, porém aquecendo o topo e a parte de baixo da barra (ao mesmo tempo).}
-
-
-\todo{Tarefa no Laboratório: considerando-se apenas a célula de carga não comercial (do item anterior): realizar o teste do impacto para determinar a frequência de ressonância dessa estrutura. Neste tipo de ensaio o padrão (e o correto) é utilizar um acelerômetro adequado, porém neste laboratório irão utilizar o(s) próprio(s) extensômetro(s). Utilizar uma placa de aquisição de dados (verificar se a entrada desta placa não será danificada pelo condicionador de vocês). Adquirir sinais no tempo durante a realização deste ensaio. Depois determinar a FFT deste sinal e discutir os resultados obtidos. Comparar com os dados da simulação dinâmica da célula de carga.}
-\todo{Tarefa no Laboratório: considerando-se o torquímetro disponibilizado, no laboratório de instrumentação, projetar a cadeia de medição e o correspondente condicionamento. Apresentar seus resultados e comparar com os aspectos teóricos apresentados neste relatório.}
-
 \todo{Faça uma comparação dos dados experimentais e/ou dos dados simulados e deste modelo. Discutir as suas diferenças.}
-
 \todo{ladainha dos circuitos, de novo}
 
 \newpage
