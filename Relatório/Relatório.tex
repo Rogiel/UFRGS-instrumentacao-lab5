@@ -25,7 +25,7 @@
 
 \resume{}
 \abstract{} 
-\keywords{}
+\keywords{célula de carga, experimento, extensômetro, ponte de Wheatstone, SOLIDWORKS, strain gage, torquímetro}
 \institute{Universidade Federal do Rio Grande do Sul, Departamento de Engenharia Elétrica, Curso de Engenharia Elétrica, Instrumentação A, Prof. Dr. Alexandre Balbinot}
 
 \headertext{Extensometria}
@@ -33,6 +33,8 @@
 \begin{document}
 \fontsize{12pt}{16pt}\selectfont
 \maketitle
+
+\todo{Resumo}
 
 \chapter{Introdução}
 
@@ -44,6 +46,8 @@ Nesta atividade de laboratório foram feitas várias atividades de laboratório 
 \caption{Desenho simplificado de um extensômetro do tipo grade}
 \label{fig:intro-extensometro}
 \end{figure}
+
+\todo{trocar figura do extensômetro na posição correta}
 
 \noindent onde (1) representa os \textit{pads} de conexão elétrica do sensor, (2) é a grade do sensor e (3) são os indicadores de alinhamento do sensor. Este tipo de extensômetro é dito como uniaxial pois deformações fora do seu eixo principal são insignificantes perto da variação de resistência elétrica devido à deformações ao longo do seu eixo principal.
 
@@ -430,7 +434,7 @@ A função que melhor ajusta os dados da Tabela \ref{tab:celula-comercial-result
 
 \noindent onde $m(V)$ é a massa em $kg$ a qual a viga está submetida e $V$ é a tensão elétrica em $volts$ medida na saída da ponte de Wheatstone com o sensor.
 
-A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-comercial-resultado-funcao-transferencia-r2}
+A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-comercial-resultado-funcao-transferencia-r2}. Já o erro de linearidade $\varepsilon_{L\%}$ encontrado devido à regressão foi de $3.09\%$.
 
 \begin{equation}
 	R^2 = 0.998975
@@ -444,8 +448,6 @@ A sensibilidade observada experimentalmente para a célula de carga comercial po
 	\label{eq:celula-comercial-sensibilidade-experimental}
 \end{equation}
 
-% erro de linearidade é em função da TF teórica, então precisa disso antes
-\todo{erro de linearidade}
 
 A Figura \ref{fig:celula-comercial-resultado-funcao-transferencia} apresenta um gráfico com a função de transferência da Equação \ref{eq:celula-comercial-resultado-funcao-transferencia} e os dados da Tabela \ref{tab:celula-comercial-resultado-funcao-transferencia}.
 
@@ -457,6 +459,16 @@ A Figura \ref{fig:celula-comercial-resultado-funcao-transferencia} apresenta um 
 \end{figure}
 
 \noindent onde a linha contínua representa a função ajustada e os pontos representam cada medida individual realizada.
+
+Na Figura \ref{fig:celula-comercial-cadeia-medidas-experimental} pode-se verificar a cadeia de medidas experimental que foi executada para a célula de carga comercial. Nota-se que não foi possível adquirir os valores de resistência elétrica dos extensômetros, haja vista se tratar de uma estrutura fechada, sem acesso a cada um dos sensores, estando disponível apenas os terminais da ponte interna.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CadeiaMedidasExperimental_CelulaComercial.jpg}
+\caption{Cadeia de medidas experimental executada para a célula de carga comercial}
+\label{fig:celula-comercial-cadeia-medidas-experimental}
+\end{figure}
+
 
 Com a função de transferência é possível aplicá-la nos dados adquiridos em laboratórios e obter a resposta da célula para a adição ou remoção de carga.
 
@@ -543,7 +555,9 @@ A função que melhor ajusta os dados da Tabela \ref{tab:celula-nao-comercial-re
 	\label{eq:celula-nao-comercial-resultado-funcao-transferencia}
 \end{equation}
 
-\noindent onde $m(V)$ é a massa em $kg$ a qual a célula de carga está submetida e $V$ é a tensão elétrica em $volts$ medida na saída da ponte de Wheatstone com o sensor. A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia-r2}
+\noindent onde $m(V)$ é a massa em $kg$ a qual a célula de carga está submetida e $V$ é a tensão elétrica em $volts$ medida na saída da ponte de Wheatstone com o sensor.
+
+A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia-r2}. Já o erro de linearidade $\varepsilon_{L\%}$ encontrado devido à regressão foi de $7.33\%$.
 
 \begin{equation}
 	R^2 = 0.992582
@@ -557,9 +571,6 @@ A sensibilidade observada experimentalmente para a célula de carga não comerci
 	\label{eq:celula-nao-comercial-sensibilidade-experimental}
 \end{equation}
 
-% erro de linearidade é em função da TF teórica, então precisa disso antes
-\todo{erro de linearidade}
-
 A Figura \ref{fig:celula-nao-comercial-resultado-funcao-transferencia} apresenta um gráfico com a função de transferência da Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia} e os dados da Tabela \ref{tab:celula-nao-comercial-resultado-funcao-transferencia}.
 
 \begin{figure}[H]
@@ -570,6 +581,15 @@ A Figura \ref{fig:celula-nao-comercial-resultado-funcao-transferencia} apresenta
 \end{figure}
 
 \noindent onde a linha contínua representa a função ajustada e os pontos representam cada medida individual realizada.
+
+Na Figura \ref{fig:celula-nao-comercial-cadeia-medidas-experimental} pode-se verificar a cadeia de medidas experimental que foi executada para a célula de carga não comercial. \todo{informações de deformação de resistência dos SGs}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CadeiaMedidasExperimental_CelulaNaoComercial.jpg}
+\caption{Cadeia de medidas experimental executada para a célula de carga comercial}
+\label{fig:celula-nao-comercial-cadeia-medidas-experimental}
+\end{figure}
 
 \subsection{Modelo computacional}
 
@@ -758,7 +778,9 @@ A função que melhor ajusta os dados da Tabela \ref{tab:torquimetro-resultado-f
 \end{equation}
 % em mv
 
-\noindent onde $V(\tau)$ é a tensão em $mV$ a qual a célula de carga do torquímetro apresenta nos seus terminais de saída, ao estar submetida a um torque $\tau$, em $lbf.ft$. A função foi ajustada com $R^2$ dado pela Equação \ref{eq:torquimetro-tf-r2}
+\noindent onde $V(\tau)$ é a tensão em $mV$ a qual a célula de carga do torquímetro apresenta nos seus terminais de saída, ao estar submetida a um torque $\tau$, em $lbf.ft$. 
+
+A função foi ajustada com $R^2$ dado pela Equação \ref{eq:torquimetro-tf-r2}. Já o erro de linearidade $\varepsilon_{L\%}$ encontrado devido à regressão foi de $15.13\%$, haja vista o experimento foi realizado com apenas uma repetição de amostras.
 
 \begin{equation}
 	R^2 = 0.954728
@@ -788,12 +810,26 @@ A Figura \ref{fig:torquimetro-tf} apresenta um gráfico com a função de transf
 \label{fig:torquimetro-tf}
 \end{figure}
 
-\todo{comparar com a teoria no roteiro}
+Na Figura \ref{fig:torquimetro-cadeia-medidas-experimental} pode-se verificar a cadeia de medidas experimental que foi executada para o torquímetro. Nota-se que não foi possível adquirir os valores de resistência elétrica dos extensômetros, haja vista se tratar de uma estrutura fechada, sem acesso a cada um dos sensores, estando disponível apenas os terminais da ponte interna.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{CadeiaMedidasExperimental_Torquimetro.jpg}
+\caption{Cadeia de medidas experimental executada para o torquímetro}
+\label{fig:torquimetro-cadeia-medidas-experimental}
+\end{figure}
 
 \chapter{Conclusões}
 
-\todo{Faça uma comparação dos dados experimentais e/ou dos dados simulados e deste modelo. Discutir as suas diferenças.}
-\todo{ladainha dos circuitos, de novo}
+Foram realizados experimentos com três estruturas diferentes: uma célula de carga comercial, uma célula de carga não comercial, e uma célula de carga montada em um torquímetro. Tanto na célula de carga comercial como na não comercial foram montados circuitos de condicionamento do sinal, a fim de poder se fazer uma análise de melhor qualidade dos resultados experimentais.
+
+Para a célula de carga comercial, por meio de um processo experimental de medidas, foram levantados valores para que se obtesse a função de transferência experimental, na faixa de $0Kg$ a $5Kg$, que representasse a resposta do sistema, para uma entrada em $Volts$ e uma saída em $Kg$. A função de transferência experimental encontrada apresentou um $R^2=0.998975$, um erro de linearidade $\varepsilon_{L\%}=3.09\%$ e uma sensibilidade $S_{exp}=-56.6\frac{mV}{Kg}$. Foram ainda feitos ensaios com a colocação e retirada de cargas na célula, na qual verificou-se a sua rapidez em atingir o valor correspondente à massa adicionada ou retirada.
+
+Na célula de carga não comercial, primeiramente encontrou-se um problema para o condicionamento da configuração de ponte completa. Após verificar que os extensômetros da face inferior (compressão) estariam danificados, optou-se pela configuração de 1/2 ponte. Levantou-se então a função de transferência experimental, realizando medidas na faixa de $0g$ a $1000g$, com entrada em $Volts$ e saída em $Kg$. A função de transferência experimental apresentou um $R^2=0.992582$, um erro de linearidade $\varepsilon_{L\%}=7.33\%$ e uma sensibilidade $S_{exp}=-46.9\frac{mV}{Kg}$. Um dos motivo pelo qual encontrou-se um erro de linearidade alto pode ser a resolução de entrada um pouco elevada ($200g$), tendo em vista o \textit{range} escolhido ($0g$ a $1000g$). Para esta célula de carga ainda foi realizada uma simulação computacional utilizando o software SOLIDWORKS 2016, na qual pôde-se realizar uma análise estática, com verificação da tensão de cisalhamento, deslocamento e deformação para a aplicação de 4N de força na extremidade não engastada da viga, e também uma análise dinâmica, na qual verificam-se os 5 primeiros modos de vibração da viga simulada, tendo como frequência fundamental $19.36Hz$. Já na parte experimental prática, realizou-se uma análise da resposta temporal, com a adição e retirada de massas da extremidade da célula, verificando-se a rapidez da sua resposta perante a ação. Foi também realizado experimento para observar o efeito do aquecimento da viga, haja vista que a célula foi montada em configuração que não faz a compensação da variação da temperatura sobre os extensômetros. Após aproximadamente $4min$ de aplicação de calor há uma distância de cerca de $10cm$ dos sensores, verificou-se uma alteração nas resistências elétricas dos sensores que representou uma variação na ordem de $0.5N$ no valor de saída do sistema, como se houvesse a adição de cerca de $50g$ na extremidade livre da viga. Realizou-se também um experimento na qual verificou-se a frequência fundamental de vibração da viga, realizando uma batida e captando o sinal de saída. Com isso realizou-se uma \textit{Transformada de Fourier} e pôde-se verificar a frequência fundamental do sistema, que foi de $21.2Hz$, valor esse muito próximo do encontrado na simulação computacional.
+
+No experimento realizado com a célula de carga montada em um torquímetro da marca GEDORE, na configuração de ponte completa, levantou-se a função de transferência experimental, tendo como entrada o torque, em $lbf.ft$, e saída em $mV$. O experimento foi realizado sem repetição, ou seja, uma única amostragem por valor de torque, razão essa que influenciou nos resultados da regressão linear para encontrar a função de transferência experimental, que apresentou um $R^2=0.954728$, um erro de linearidade $\varepsilon_{L\%}=15.13\%$ e uma sensibilidade $S_{exp}=0.88\frac{mV}{lbf.ft}$.
+
+Os experimentos realizados foram de grande valia para o aprendizado na aplicação, trabalho e condicionamento de extensômetros. Verificou-se que, por tratar de variações de resistência elétrica da ordem de $m\Omega$, é imprescindível um bom condicionamento do sinal para poder obter resultados com baixos níveis de erro. 
 
 \newpage
 
@@ -818,7 +854,7 @@ A Figura \ref{fig:torquimetro-tf} apresenta um gráfico com a função de transf
 	\chapter*{Anexos}
 	\label{ch:attachments}
 	\section{Mathematica}
-	
+	\todo{anexos do Mathematica}
 }
 
 \end{document}
