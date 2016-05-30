@@ -323,7 +323,7 @@ Outra análise importante a ser feita com sensores resistivos é de resposta té
 
 Uma das vantagens do uso de ponte de Wheatstone completa ou 1/2 ponte, com sensores em lados inversos da viga, é que é a forma mais robusta em função da variação de temperatura, a variação de resistência dos extensômetros devido à variação térmica é mínima e considerando que o aquecimento se dê de forma uniforme nos 4 sensores, o efeito de aquecimento é anulado pela própria ponte de Wheatstone.
 
-Neste experimento a fim de determinar o comportamento do sistema quando aquecido foi aquecido a extremidade inferior da célula (longe dos extensômetros) durante 4 minutos. Estes dados foram adquiridos e filtrados digitalmente para remover o ruído gerado pelo circuito de condicionamento e conversor analógico-digital da placa de aquisição de dados. Neste tipo de experimento, mesmo em se tratando dos modelos que compensam os efeitos térmicos, é praticamente impossível, sob as condições existentes, garantir que a barra tenha aquecimento homogêneo e, portanto, provoque a mesma variação de resistência elétrica correlacionada com o aumento de temperatura. 
+Neste experimento a fim de determinar o comportamento do sistema quando aquecido foi aquecido a face inferior da célula (longe dos extensômetros) durante 4 minutos. Estes dados foram adquiridos e filtrados digitalmente para remover o ruído gerado pelo circuito de condicionamento e conversor analógico-digital da placa de aquisição de dados. Neste tipo de experimento, mesmo em se tratando dos modelos que compensam os efeitos térmicos, é praticamente impossível, sob as condições existentes, garantir que a barra tenha aquecimento homogêneo e, portanto, provoque a mesma variação de resistência elétrica correlacionada com o aumento de temperatura. 
 
 O processo de aquisição de dados para a análise de frequência fundamental como a análise de comportamento térmico foi utilizado o mesmo processo de calibração do sistema.
 
@@ -385,7 +385,7 @@ A Tabela \ref{tab:celula-comercial-resultado-funcao-transferencia} apresenta as 
 
 \begin{table}[H]
 \centering
-\caption{Tabela com os valores de medidos experimentalmente para ajuste da função de transferência experimental da célula de carga comercial.}
+\caption{Tabela com os valores medidos experimentalmente para ajuste da função de transferência experimental da célula de carga comercial.}
 \begin{tabular}{|l|l|l|}
 
 \hline
@@ -435,6 +435,13 @@ A função foi ajustada com $R^2$ dado pela Equação \ref{eq:celula-comercial-r
 \begin{equation}
 	R^2 = 0.998975
 	\label{eq:celula-comercial-resultado-funcao-transferencia-r2}
+\end{equation}
+
+A sensibilidade observada experimentalmente para a célula de carga comercial pode ser dada pela derivada da função de transferência experimental em razão da tensão elétrica, conforme a Equação \ref{eq:celula-comercial-sensibilidade-experimental}
+
+\begin{equation}
+	S_{experimental}=\frac{d (m(V))}{d V }=-17.368\frac{Kg}{V} \textrm{ ou } S_{experimental}=-57.6\frac{mV}{Kg}
+	\label{eq:celula-comercial-sensibilidade-experimental}
 \end{equation}
 
 % erro de linearidade é em função da TF teórica, então precisa disso antes
@@ -514,7 +521,7 @@ A Tabela \ref{tab:celula-nao-comercial-resultado-funcao-transferencia} apresenta
 
 \begin{table}[H]
 \centering
-\caption{Tabela com os valores de medidos experimentalmente para ajuste da função de transferência experimental da célula de carga não-comercial.}
+\caption{Tabela com os valores medidos experimentalmente para ajuste da função de transferência experimental da célula de carga não-comercial.}
 \begin{tabular}{|l|l|l|}
 
 \hline
@@ -532,7 +539,7 @@ A Tabela \ref{tab:celula-nao-comercial-resultado-funcao-transferencia} apresenta
 A função que melhor ajusta os dados da Tabela \ref{tab:celula-nao-comercial-resultado-funcao-transferencia} é dada na Equação \ref{eq:celula-nao-comercial-resultado-funcao-transferencia}
 
 \begin{equation}
-	m(V) = 27,0883 - 21,309 V
+	m(V) = 27.0883 - 21.309 V
 	\label{eq:celula-nao-comercial-resultado-funcao-transferencia}
 \end{equation}
 
@@ -541,6 +548,13 @@ A função que melhor ajusta os dados da Tabela \ref{tab:celula-nao-comercial-re
 \begin{equation}
 	R^2 = 0.992582
 	\label{eq:celula-nao-comercial-resultado-funcao-transferencia-r2}
+\end{equation}
+
+A sensibilidade observada experimentalmente para a célula de carga não comercial pode ser dada pela derivada da função de transferência experimental em razão da tensão elétrica, conforme a Equação \ref{eq:celula-nao-comercial-sensibilidade-experimental}
+
+\begin{equation}
+	S_{experimental}=\frac{d (m(V))}{d V }=-21.31\frac{Kg}{V} \textrm{ ou } S_{experimental}=-46.9\frac{mV}{Kg}
+	\label{eq:celula-nao-comercial-sensibilidade-experimental}
 \end{equation}
 
 % erro de linearidade é em função da TF teórica, então precisa disso antes
@@ -632,12 +646,16 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 
 \subsection{Resposta temporal}
 
+Os resultados de resposta temporal no experimento realizado com a célula não comercial são apresentados e discutidos a seguir. Na Figura \ref{fig:celula-nao-comercial-resultado-0-400g} observa-se a inserção de uma massa de $400g$ na célula em repouso e sem carga. Nota-se que, em cerca de $1.8s$ a célula responde à alteração de carga, chegando a valores próximos da massa inserida. Uma pequena variação é percebida, e, por volta dos $3s$ o valor se estabiliza.
+
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{NaoComercial_0-400g.pdf}
 \caption{Curva temporal da resposta da célula de carga não-comercial quando adicionada uma carga de 400g na célula em repouso.}
 \label{fig:celula-nao-comercial-resultado-0-400g}
 \end{figure}
+
+Na avaliação temporal, com a inserção de $400g$ em duas etapas de $200g$, apresentada na Figura \ref{fig:celula-nao-comercial-resultado-0-400g-etapa}, nota-se que cada valor referencial foi atingido em cerca de $0.8s$, não havendo variações de tempo perceptíveis para a etapa $0-200g$ para a etapa $200-400g$.
 
 \begin{figure}[H]
 \center
@@ -646,12 +664,16 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 \label{fig:celula-nao-comercial-resultado-0-400g-etapa}
 \end{figure}
 
+A Figura \ref{fig:celula-nao-comercial-resultado-0-1000g} apresenta a inserção, em uma única etapa, de $1000g$ na célula que estava em repouso e sem carga. Observa-se que, em aproximadamente $1.2s$, a curva atinge 95\% do seu valor referencial e, após $0.6s$, atinge a sua estabilidade.
+
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{NaoComercial_0-1000g.pdf}
 \caption{Curva temporal da resposta da célula de carga não-comercial quando adicionada uma carga de 1000g na célula em repouso.}
 \label{fig:celula-nao-comercial-resultado-0-1000g}
 \end{figure}
+
+Na Figura \ref{fig:celula-nao-comercial-resultado-400-0g} verifica-se o efeito da retirada de uma carga de $400g$ da célula, em uma única etapa. Em menos de $1.0s$ o valor atinge o seu limite inferior, notando-se uma leve variação no sinal, devido à vibração remanescente da retirada da massa.
 
 \begin{figure}[H]
 \center
@@ -660,12 +682,16 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 \label{fig:celula-nao-comercial-resultado-400-0g}
 \end{figure}
 
+O mesmo procedimento anterior foi então repetido, porém em duas etapas, retirando primeiramente $200g$ e, depois, os outros $200g$. O tempo que a curva leva para cada etapa é muito rápido, da ordem de $0.5s$, porém observa-se um valor residual no final, provavelmente em virtude do desgaste elástico do material da célula, conforme a Figura \ref{fig:celula-nao-comercial-resultado-400-0g-etapa}.
+
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{NaoComercial_400g-0_etapa.pdf}
 \caption{Curva temporal da resposta da célula de carga comercial quando se remove uma carga de 400g em duas etapas (200g + 200g).}
 \label{fig:celula-nao-comercial-resultado-400-0g-etapa}
 \end{figure}
+
+No caso da retirada de $1000Kg$ da célula, em uma única etapa, percebe-se um decaimento do sinal de forma muito rápida (cerca de $0.8s$), notando uma leve oscilação no final, como pode ser visto na Figura \ref{fig:celula-nao-comercial-resultado-1000-0g}.
 
 \begin{figure}[H]
 \center
@@ -674,9 +700,9 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 \label{fig:celula-nao-comercial-resultado-1000-0g}
 \end{figure}
 
-%%%%%%%%
-
 \subsection{Efeito do aquecimento da viga}
+
+Como já mencionado, a célula utilizada está montada na configuração de meia ponte, porém com os dois extensômetros na mesma face da placa de metal, não fazendo assim a compensação por temperatura, que ocorreria caso um dos extensômetros estivesse na face superior e o outro na face inferior. Esta configuração é interessante para se observar o efeito térmico sobre os sensores. Ao aplicar uma chama de fogo a, aproximadamente, $10cm$ dos sensores, na face inferior da viga, por cerca de $4min$, percebeu-se uma variação na tensão de saída da ponte que, após processado o sinal e aplicada a função de transferência experimental já encontrada, notou-se uma variação da ordem de $0.5N$ que, considerando uma aceleração gravitacional $g$ de $10m/s^2$, corresponde a uma massa de $50g$. Esse resultado pode ser observado na Figura \ref{fig:celula-nao-comercial-resultado-aquecimento}.
 
 \begin{figure}[H]
 \center
@@ -685,7 +711,9 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 \label{fig:celula-nao-comercial-resultado-aquecimento}
 \end{figure}
 
-\subsection{Análise de frequência fundamental}
+\subsection{Análise da frequência fundamental}
+
+Ao aplicar uma determinada força na viga, de forma muito rápida, captando a sua resposta no tempo, e aplicando uma \textit{Transformada de Fourier}, pode-se verificar a frequência fundamental de vibração da viga. A Figura \ref{fig:celula-nao-comercial-resultado-espectro} apresenta a magnitude do espectro das frequências observadas, percebendo-se um grande pico de magnitude por volta dos $20Hz$.
 
 \begin{figure}[H]
 \center
@@ -694,6 +722,8 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 \label{fig:celula-nao-comercial-resultado-espectro}
 \end{figure}
 
+Na Figura \ref{fig:celula-nao-comercial-resultado-espectro-destaque} foi aplicado um \textit{zoom} no trecho próximo ao pico de magnitude percebido na Figura \ref{fig:celula-nao-comercial-resultado-espectro}. Com isso é possível estimar a frequência fundamental da viga, que é de, aproximadamente, $21.2Hz$. Valor esse compatível com o experimento feito na simulação computacional, que apontou $19.36Hz$ como frequência fundamental de vibração da viga. Já o segundo modo de vibração, que pela simulação computacional era de $121.3Hz$ não pôde ser observado, devido à sua baixa amplitude e o nível de ruído da amostragem, ficando por isso de fora faixa apresentada na Figura \ref{fig:celula-nao-comercial-resultado-espectro}
+
 \begin{figure}[H]
 \center
 \includegraphics[width=\textwidth]{NaoComercial-SpectrumHighlight.pdf}
@@ -701,9 +731,26 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 \label{fig:celula-nao-comercial-resultado-espectro-destaque}
 \end{figure}
 
-\todo{comparar com a simulação}
-
 \section{Torquímetro}
+A Tabela \ref{tab:torquimetro-resultado-funcao-transferencia} apresenta as medidas experimentais para a célula de carga montada no torquímetro GEDORE FLEX-O-TORK Nº 4657.
+
+\begin{table}[H]
+\centering
+\caption{Tabela com os valores medidos experimentalmente para ajuste da função de transferência experimental da célula de carga do torquímetro.}
+\label{tab:torquimetro-resultado-funcao-transferencia}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Torque ($lbf.ft$)} & \textbf{Tensão ($mV$)} \\ \hline
+0                        & -101.1               \\ \hline
+20                       & -73.4                \\ \hline
+30                       & -65.3                \\ \hline
+40                       & -64.3                \\ \hline
+50                       & -53.6                \\ \hline
+60                       & -44.7                \\ \hline
+\end{tabular}
+\end{table}
+
+A função que melhor ajusta os dados da Tabela \ref{tab:torquimetro-resultado-funcao-transferencia} é dada na Equação \ref{eq:torquimetro-tf}.
 
 \begin{equation}
 	V(\tau) = -96.38 + 0.88 \tau
@@ -711,10 +758,28 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 \end{equation}
 % em mv
 
+\noindent onde $V(\tau)$ é a tensão em $mV$ a qual a célula de carga do torquímetro apresenta nos seus terminais de saída, ao estar submetida a um torque $\tau$, em $lbf.ft$. A função foi ajustada com $R^2$ dado pela Equação \ref{eq:torquimetro-tf-r2}
+
 \begin{equation}
 	R^2 = 0.954728
 	\label{eq:torquimetro-tf-r2}
 \end{equation}
+
+O torquímetro apresentava também o seu cursor de indicação de torque em $N.m$, porém optou-se pela aquisição experimental em $lbf.ft$. Para realizar a conversão de $lbf.ft$ para $N.m$ pode-se utilizar a seguinte relação:
+
+\begin{equation}
+	1 lbf.ft = 1.3558 N.m
+	\label{eq:torquimetro-relacao-unidades}
+\end{equation}
+
+A sensibilidade observada experimentalmente para a célula de carga do torquímetro pode ser dada pela derivada da função de transferência experimental em razão da tensão elétrica, conforme a Equação \ref{eq:torquimetro-sensibilidade-experimental}.
+
+\begin{equation}
+	S_{experimental}=\frac{d (V(\tau))}{d \tau }=0.88\frac{mV}{lbf.ft} \textrm{ ou } S_{experimental}=1.136\frac{lbf.ft}{mV}
+	\label{eq:torquimetro-sensibilidade-experimental}
+\end{equation}
+
+A Figura \ref{fig:torquimetro-tf} apresenta um gráfico com a função de transferência da Equação \ref{eq:torquimetro-tf} e os dados da Tabela \ref{tab:torquimetro-resultado-funcao-transferencia}.
 
 \begin{figure}[H]
 \center
@@ -723,7 +788,6 @@ A análise, tanto estática quanto dinâmica, da estrutura de uma célula de car
 \label{fig:torquimetro-tf}
 \end{figure}
 
-\todo{torquímetro}
 \todo{comparar com a teoria no roteiro}
 
 \chapter{Conclusões}
