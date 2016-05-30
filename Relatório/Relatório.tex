@@ -2,6 +2,7 @@
 
 \usepackage{etoolbox}
 \usepackage{float}
+\usepackage{pdfpages}
 
 \newtoggle{attachments}
 \toggletrue{attachments}
@@ -888,11 +889,21 @@ Os experimentos realizados foram de grande valia para o aprendizado na aplica√ß√
 
 \end{thebibliography}
 
-\iftoggle{attachments}{
-	\chapter*{Anexos}
-	\label{ch:attachments}
-	\section{Mathematica}
-	\todo{anexos do Mathematica}
-}
+\newpage
+
+\includepdf[fitpaper=true,pages=1,pagecommand={
+	\pagestyle{fancy}
+	\chapter*{Anexo A}
+	\label{attachment:a}
+}]{../Resources/Mathematica/Aquisicao.nb.pdf}
+\includepdf[fitpaper=true,pages=2-,pagecommand={
+	\pagestyle{fancy}
+}]{../Resources/Mathematica/Aquisicao.nb.pdf}
+
+\includepdf[fitpaper=true,pages=1,pagecommand={
+	\pagestyle{fancy}
+	\chapter*{Anexo B}
+	\label{attachment:b}
+}]{../Resources/Mathematica/Torquimetro.nb.pdf}
 
 \end{document}
