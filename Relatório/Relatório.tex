@@ -819,6 +819,39 @@ Na Figura \ref{fig:torquimetro-cadeia-medidas-experimental} pode-se verificar a 
 \label{fig:torquimetro-cadeia-medidas-experimental}
 \end{figure}
 
+\section{Análise de circuitos de condicionamento}
+
+A Figura \ref{fig:condicionador-1} apresenta um circuito de condicionamento utilizando uma fonte de tensão de referência da Analog Devices (AD588) de 10V, ligada de forma a garantir uma corrente constante pela ponte. Porém esse circuito não oferece um ajuste de zero, necessário para esse tipo de aplicação.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{condicionador_1.jpg}
+\caption{Condicionador para uma ponte completa de 350$\Omega$}
+\label{fig:condicionador-1}
+\end{figure}
+
+O circuito condicionador apresentado na Figura \ref{fig:condicionador-1} possui uma estrutura de alimentação da ponte, formada pelo AD588 e pelo amplificador operacional (OPAMP) OP177, formando uma fonte de corrente. O AD620 é um amplificador de intrumentação, com ganho dado pela Equação \ref{eq:ganho-AD620}.
+
+\begin{equation}
+	G=\frac{49.4k\Omega}{R}+1=\frac{49.4k\Omega}{575}+1=86.91
+	\label{eq:ganho-AD620}
+\end{equation}
+
+Como solução para o ajuste de zero, propõe-se a inclusão de um potenciômetro multivoltas de 100k$\Omega$ ligado em suas extremidades às duas alimentações da fonte simétrica, e ligando o cursor a um resistor de 47k$\Omega$ até a entrada inversora do AD620. O potenciômetro proposto adiciona uma tensão de offset no terminar inversor do AD620, podendo assim regular a tensão.
+
+Na Figura \ref{fig:condicionador-2} é apresentado um outro circuito de condicionamento, composto por um amplificador de instrumentação AD620B, um OPAMP AD705 e um conversor ADC.
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.7\textwidth]{condicionador_2.jpg}
+\caption{Condicionador para uma ponte completa de 3k$\Omega$}
+\label{fig:condicionador-2}
+\end{figure}
+
+A ponte é alimentada com uma tensão de +5V, tendo a sua saída diferencial amplificada pelo AD620B, com um ganho de 100. A saída do AD620B vai para a entrada do ADC. O OPAMP AD705 está montado numa configuração \textit{buffer}, com o seu terminal de entrada não inversor ligado a um divisor de tensão, fornecendo 2V nesse terminal. A saída do AD705 está ligada no terminal 5 do AD620B, denominada REF, que funciona como um offset para a saída em tensão do amplificador. Na entrada REF do ADC está ligada outra parte do divisor de tensão, fornecendo 3V. A saída do AD705, com 2V também está conectado à entrada AGND do ADC. De acordo com o \textit{datasheet} do AD620B \cite{datasheet-AD620}, muitos erros são evitados com a conexão feita desta forma.
+
+O circuito apresentado na Figura \ref{fig:condicionador-2} é mostrado no próprio \textit{datasheet} do AD620B, mostrando esta configuração como um bom condicionador para aplicações de baixo custo, pois permite que o sistema sofra menos ruído com o GND virtual entre o ADC e o AD620B.
+
 \chapter{Conclusões}
 
 Foram realizados experimentos com três estruturas diferentes: uma célula de carga comercial, uma célula de carga não comercial, e uma célula de carga montada em um torquímetro. Tanto na célula de carga comercial como na não comercial foram montados circuitos de condicionamento do sinal, a fim de poder se fazer uma análise de melhor qualidade dos resultados experimentais.
@@ -828,6 +861,8 @@ Para a célula de carga comercial, por meio de um processo experimental de medid
 Na célula de carga não comercial, primeiramente encontrou-se um problema para o condicionamento da configuração de ponte completa. Após verificar que os extensômetros da face inferior (compressão) estariam danificados, optou-se pela configuração de 1/2 ponte. Levantou-se então a função de transferência experimental, realizando medidas na faixa de $0g$ a $1000g$, com entrada em $Volts$ e saída em $Kg$. A função de transferência experimental apresentou um $R^2=0.992582$, um erro de linearidade $\varepsilon_{L\%}=7.33\%$ e uma sensibilidade $S_{exp}=-46.9\frac{mV}{Kg}$. Um dos motivo pelo qual encontrou-se um erro de linearidade alto pode ser a resolução de entrada um pouco elevada ($200g$), tendo em vista o \textit{range} escolhido ($0g$ a $1000g$). Para esta célula de carga ainda foi realizada uma simulação computacional utilizando o software SOLIDWORKS 2016, na qual pôde-se realizar uma análise estática, com verificação da tensão de cisalhamento, deslocamento e deformação para a aplicação de 4N de força na extremidade não engastada da viga, e também uma análise dinâmica, na qual verificam-se os 5 primeiros modos de vibração da viga simulada, tendo como frequência fundamental $19.36Hz$. Já na parte experimental prática, realizou-se uma análise da resposta temporal, com a adição e retirada de massas da extremidade da célula, verificando-se a rapidez da sua resposta perante a ação. Foi também realizado experimento para observar o efeito do aquecimento da viga, haja vista que a célula foi montada em configuração que não faz a compensação da variação da temperatura sobre os extensômetros. Após aproximadamente $4min$ de aplicação de calor há uma distância de cerca de $10cm$ dos sensores, verificou-se uma alteração nas resistências elétricas dos sensores que representou uma variação na ordem de $0.5N$ no valor de saída do sistema, como se houvesse a adição de cerca de $50g$ na extremidade livre da viga. Realizou-se também um experimento na qual verificou-se a frequência fundamental de vibração da viga, realizando uma batida e captando o sinal de saída. Com isso realizou-se uma \textit{Transformada de Fourier} e pôde-se verificar a frequência fundamental do sistema, que foi de $21.2Hz$, valor esse muito próximo do encontrado na simulação computacional.
 
 No experimento realizado com a célula de carga montada em um torquímetro da marca GEDORE, na configuração de ponte completa, levantou-se a função de transferência experimental, tendo como entrada o torque, em $lbf.ft$, e saída em $mV$. O experimento foi realizado sem repetição, ou seja, uma única amostragem por valor de torque, razão essa que influenciou nos resultados da regressão linear para encontrar a função de transferência experimental, que apresentou um $R^2=0.954728$, um erro de linearidade $\varepsilon_{L\%}=15.13\%$ e uma sensibilidade $S_{exp}=0.88\frac{mV}{lbf.ft}$.
+
+Ao final ainda foi realizada uma breve análise de alguns circuitos de condicionamento de sinal utilizados extensômetros.
 
 Os experimentos realizados foram de grande valia para o aprendizado na aplicação, trabalho e condicionamento de extensômetros. Verificou-se que, por tratar de variações de resistência elétrica da ordem de $m\Omega$, é imprescindível um bom condicionamento do sinal para poder obter resultados com baixos níveis de erro. 
 
@@ -847,6 +882,9 @@ Os experimentos realizados foram de grande valia para o aprendizado na aplicaç�
 \bibitem{datasheet-tl084} Datasheet oferecido pelo fabricante do amplificador operacional TL084, disponível em \url{http://www.ti.com.cn/cn/lit/ds/symlink/tl084.pdf}.
 
 \bibitem{datasheet-ina126} Datasheet oferecido pelo fabricante amplificador de instrumentação INA126, disponível em \url{http://www.ti.com/lit/ds/symlink/ina126.pdf}.
+
+\bibitem{datasheet-AD620} Datasheet oferecido pelo fabricante amplificador de instrumentação AD620, disponível em \url{http://pdf.datasheetcatalog.com/datasheet/analogdevices/105505445AD620_e.pdf}.
+
 
 \end{thebibliography}
 
